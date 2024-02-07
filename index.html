@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Website</title>
+    <style>
+        /* Add your CSS styles here */
+        .menu-container {
+            display: none;
+        }
+        .menu-container.show {
+            display: block;
+        }
+    </style>
+    <script>
+        // JavaScript to toggle menu visibility
+        function toggleMenu() {
+            var menu = document.getElementById('menu-container');
+            menu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
-     <!--Navbar section-->
-     <nav class="navbar">
+    <!-- Navbar section -->
+    <nav class="navbar">
         <div class="navbar__container">
-            <a href="/" id="navbar__logo">TechFoods</a>
+            <h1>TechFoods</h1><br>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <!--this is the unordered list for the nav-->
             <ul class="navbar__menu">
                 <li class="navbar__item">
                     <a href="/" class="navbar__links">Home</a>
@@ -24,25 +39,37 @@
                     <a href="/" class="navbar__links">About</a>
                 </li>
                 <li class="navbar__item">
-                    <a href="/food.html" class="navbar__links">Food Menu</a>
+                    <!-- Call toggleMenu function to show menu -->
+                    <a href="#" class="navbar__links" onclick="toggleMenu()">Food Menu</a>
                 </li>
                 <li class="navbar__btn">
-                    <a href="/" class="button">Sign Up</a>
+                    <!-- Change the href attribute to the registration/login page -->
+                    <a href="/login.html" class="button">Order Now</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!--Video section-->
-   <video  autoplay muted loop width="500">
-    <Source src="Food ad.mp4"> 
-    <Source src="Food ad.WebM">
-        This browser does not support html 5
-   </video>
-   <p> The best food across the web</p>
+    
+    <!-- Video section -->
+    <video autoplay muted loop width="500">
+        <source src="Food ad.mp4" type="video/mp4"> 
+        <source src="Food ad.webm" type="video/webm">
+        Your browser does not support HTML5 video.
+    </video>
+    <p>The best food across the web</p>
 
-   <!--About us section-->
-   <h3>About us</h3>
-   <p>Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods, we are passionate about all things food and <br> 
+    <!-- Menu section -->
+    <div id="menu-container" class="menu-container">
+        <h3>Menu</h3>
+        <!-- Add your menu items here -->
+        <p>Item 1: Description</p>
+        <p>Item 2: Description</p>
+        <p>Item 3: Description</p>
+    </div>
+
+    <!-- About us section -->
+    <h3>About us</h3>
+    <p>Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods, we are passionate about all things food and <br> 
     are dedicated to providing you with delicious recipes, helpful cooking tips, and insightful articles to enhance your culinary journey. <br> 
     Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to create memorable meals that nourish both body and soul.<br>  
     With a diverse range of recipes spanning from comforting classics to innovative creations, there's something for everyone here. Join us as we explore<br>  
