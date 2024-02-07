@@ -13,13 +13,6 @@
             display: block;
         }
     </style>
-    <script>
-        // JavaScript to toggle menu visibility
-        function toggleMenu() {
-            var menu = document.getElementById('menu-container');
-            menu.classList.toggle('show');
-        }
-    </script>
 </head>
 <body>
     <!-- Navbar section -->
@@ -39,8 +32,7 @@
                     <a href="/" class="navbar__links">About</a>
                 </li>
                 <li class="navbar__item">
-                    <!-- Call toggleMenu function to show menu -->
-                    <a href="#" class="navbar__links" onclick="toggleMenu()">Food Menu</a>
+                    <a href="/food.html" class="navbar__links">Food Menu</a>
                 </li>
                 <li class="navbar__btn">
                     <!-- Change the href attribute to the registration/login page -->
@@ -56,16 +48,7 @@
         <source src="Food ad.webm" type="video/webm">
         Your browser does not support HTML5 video.
     </video>
-    <p>The best food across the web</p>
-
-    <!-- Menu section -->
-    <div id="menu-container" class="menu-container">
-        <h3>Menu</h3>
-        <!-- Add your menu items here -->
-        <p>Item 1: Description</p>
-        <p>Item 2: Description</p>
-        <p>Item 3: Description</p>
-    </div>
+    <p>Bytes of Flavor: Where Tech Meets Taste!</p>
 
     <!-- About us section -->
     <h3>About us</h3>
@@ -76,5 +59,24 @@
     the world of gastronomy, two dish at a time.</p>
 
     <img src="images/chef.png" alt="a chef">
+
+    <!--why to choose us section-->
+    <h3>Why to choose us?</h3>
+    <ul class="ChooseUs__point">
+        <li class="ChooseUs__item">
+            <p>We are fast and realiable</p>
+        </li>
+        <li class="ChooseUs__item">
+            <p>Flavourful food</p>
+        </li>
+        <li class="ChooseUs__item">
+            <p>Cataer for everyone and their perfered stle of food</p>
+        </li>
+        <li class="navbar__btn">
+            <p>Best in the west</p>
+        </li>
+    </ul>
+
+    <img src="images/food.png" alt="plate of a delicious food">
 </body>
 </html>
