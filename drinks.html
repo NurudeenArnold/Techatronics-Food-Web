@@ -6,7 +6,6 @@
     <title>Food Website</title>
     <style>
         /* Add your CSS styles here */
-        
         header{
             background-color: mediumaquamarine;
             color: #333;
@@ -19,7 +18,20 @@
             text-align: center;
             padding: 20px;
         }
-          </style>
+        .footer__links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer__links li {
+            margin: 0 10px;
+        }
+        .footer__links a {
+            color: #223333;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
      <!--Navbar section-->
@@ -75,6 +87,12 @@
     </li>
     </ol>
     <footer>
+        <ul class="footer__links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/food.html">Food Menu</a></li>
+            <li><a href="/login.html" class="button">Order Now</a></li>
+        </ul>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
 </body>

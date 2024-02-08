@@ -6,7 +6,6 @@
     <title>Food Website</title>
     <style>
         /* Add your CSS styles here */
-        
         header{
             background-color: mediumaquamarine;
             color: #333;
@@ -19,13 +18,25 @@
             text-align: center;
             padding: 20px;
         }
-          </style>
-        </head>
-        <body>
+        .footer__links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer__links li {
+            margin: 0 10px;
+        }
+        .footer__links a {
+            color: #223333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
     <!-- Navbar section -->
     <nav class="navbar">
         <div class="navbar__container">
-          
             <h1>TechFoods</h1>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -69,7 +80,7 @@
     <img src="images/chef.png" alt="a chef">
     <figure>
         <figcaption>At your service</figcaption>
-        </figure>
+    </figure>
 
     <!--why to choose us section-->
     <h3>Why to choose us?</h3>
@@ -81,7 +92,7 @@
             <p>Flavourful food</p>
         </li>
         <li class="ChooseUs__item">
-            <p>Cataer for everyone and their perfered stle of food</p>
+            <p>Cater for everyone and their preferred style of food</p>
         </li>
         <li class="navbar__btn">
             <p>Best in the west</p>
@@ -89,7 +100,15 @@
     </ul>
 
     <img src="images/food.png" alt="plate of a delicious food">
+    
+    <!-- Footer section -->
     <footer>
+        <ul class="footer__links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/food.html">Food Menu</a></li>
+            <li><a href="/login.html" class="button">Order Now</a></li>
+        </ul>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
 </body>
