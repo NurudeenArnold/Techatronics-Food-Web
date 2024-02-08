@@ -7,7 +7,33 @@
     <!-- Add your CSS styles here -->
 </head>
 <body>
-    <h1>Login</h1>
+     <!-- Navbar section -->
+     <nav class="navbar">
+        <div class="navbar__container">
+            <h1>TechFoods</h1><br>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/food.html" class="navbar__links">Food Menu</a>
+                </li>
+                <li class="navbar__btn">
+                    <!-- Change the href attribute to the registration/login page -->
+                    <a href="/login.html" class="button">Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h3>Login</h3>
     <form action="login_process.php" method="post">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -27,6 +53,6 @@
     
     
     
-<button onclick="window.location.href='index.html'">Go to Home</button></pre>
+
 </body>
 </html>

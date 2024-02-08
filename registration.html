@@ -7,7 +7,33 @@
     <!-- Add your CSS styles here -->
 </head>
 <body>
-    <h1>Registration</h1>
+     <!-- Navbar section -->
+     <nav class="navbar">
+        <div class="navbar__container">
+            <h1>TechFoods</h1>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/food.html" class="navbar__links">Food Menu</a>
+                </li>
+                <li class="navbar__btn">
+                    <!-- Change the href attribute to the registration/login page -->
+                    <a href="/login.html" class="button">Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h3>Registration</h3>
     <form action="registration_process.php" method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
