@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website</title>
+    <style>
+        /* Add your CSS styles here */
+        header{
+            background-color: mediumaquamarine;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        footer{
+            background-color: mediumaquamarine;
+            color: #223333;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer__links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer__links li {
+            margin: 0 10px;
+        }
+        .footer__links a {
+            color: #223333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+     <!--Navbar section-->
+     <nav class="navbar">
+        <div class="navbar__container">
+            <h1>TechFoods</h1>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!--this is the unordered list for the nav-->
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="index.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="index.html" class="navbar__links">About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="food.html" class="navbar__links">Food Menu</a>
+                </li>
+                <li class="navbar__btn">
+                    <!-- Change the href attribute to the registration/login page -->
+                    <a href="login.html" class="button">Order Now</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Meals for Sandwitch-->
+    <h3>Sandwitch meals</h3>
+    <ol>
+    <li><br>
+        <img src="food menu img/sandwitch_img/cheese sandwitch.jfif" alt="cheese sandwitch">
+        <p>cheese sandwitch R20</p> <a href="login.html"><button>add</button></a>
+    </li>
+    <li><br>
+        <img src="food menu img/sandwitch_img/Chicken & Mayo.jfif" alt="Chicken & Mayo">
+        <p>Chicken & Mayo R45</p> <a href="login.html"><button>add</button></a>
+    </li>
+    <li><br>
+        <img src="food menu img/sandwitch_img/club sandwitch.jfif" alt="Club sandwitch">
+        <p>Club Sandwitch R75</p> <a href="login.html"><button>add</button></a>
+    </li>
+    <li><br>
+        <img src="food menu img/sandwitch_img/ham sandwitch.jfif" alt="Ham sandwitch">
+        <p>Ham Sandwitch R50</p> <a href="login.html"><button>add</button></a>
+    </li>
+    <li><br>
+        <img src="food menu img/sandwitch_img/tuna sub sandwitch.jfif" alt="Tuna sub">
+        <p>Tuna sub R95</p> <a href="login.html"><button>add</button></a>
+    </li>
+    </ol>
+    <footer>
+        <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="food.html">Food Menu</a></li>
+            <li><a href="login.html" class="button">Order Now</a></li>
+        </ul>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+</body>
+</html>
