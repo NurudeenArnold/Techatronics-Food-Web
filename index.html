@@ -42,44 +42,49 @@
 </head>
 <body>
     <!-- Navbar section -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <h1>TechFoods</h1>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <section>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <h1>TechFoods</h1>
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="navbar__menu">
+                    <li class="navbar__item">
+                        <a href="index.html" class="navbar__links">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#aboutus" class="navbar__links">About</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="food.html" class="navbar__links">Food Menu</a>
+                    </li>
+                    <li class="navbar__btn">
+                        <!-- Change the href attribute to the registration/login page -->
+                        <a href="login.html" class="button">Order Now</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="contactus.html" class="navbar__links">Contact Us</a>
+                    </li>
+                </ul>
             </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#aboutus" class="navbar__links">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="food.html" class="navbar__links">Food Menu</a>
-                </li>
-                <li class="navbar__btn">
-                    <!-- Change the href attribute to the registration/login page -->
-                    <a href="login.html" class="button">Order Now</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="contactus.html" class="navbar__links">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </section>
     
     <!-- Video section -->
-    <video autoplay muted loop width="500">
-        <source src="Food ad.mp4" type="video/mp4"> 
-        <source src="Food ad.webm" type="video/webm">
-        Your browser does not support HTML5 video.
-    </video>
-    <p>Bytes of Flavor: Where Tech Meets Taste</p>
+    <section>
+        <video autoplay muted loop width="500">
+            <source src="Food ad.mp4" type="video/mp4"> 
+            <source src="Food ad.webm" type="video/webm">
+            Your browser does not support HTML5 video.
+        </video>
+        <p>Bytes of Flavor: Where Tech Meets Taste</p>
+    </section>
 
     <!-- About us section -->
+   <section>
     <h3 id="aboutus">About us</h3>
     <p>Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods, we are passionate about all things food and <br> 
     are dedicated to providing you with delicious recipes, helpful cooking tips, and insightful articles to enhance your culinary journey. <br> 
@@ -91,9 +96,11 @@
     <figure><img src="images/chef.png" alt="a chef">
         <figcaption>At your service</figcaption>
     </figure>
+   </section>
 
     <!--why to choose us section-->
-    <h3>Why to choose us?</h3>
+    <section>
+        <h3>Why to choose us?</h3>
     <ul class="ChooseUs__point">
         <li class="ChooseUs__item">
             <p>We are fast and reliable</p>
@@ -110,17 +117,20 @@
     </ul>
 
     <img src="images/food.png" alt="plate of a delicious food">
+    </section>
     
     <!-- Footer section -->
-    <footer>
-        <ul class="footer__links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">About</a></li>
-            <li><a href="food.html">Food Menu</a></li>
-            <li><a href="login.html" class="button">Order Now</a></li>
-            <li><a href="contactus.html">Contact us</a></li>
-        </ul>
-        <p>Contact us at: Techatronics@TechFoods.com</p>
-    </footer>
+    <section>
+        <footer>
+            <ul class="footer__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="food.html">Food Menu</a></li>
+                <li><a href="login.html" class="button">Order Now</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+            </ul>
+            <p>Contact us at: Techatronics@TechFoods.com</p>
+        </footer>
+    </section>
 </body>
 </html>
