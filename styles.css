@@ -117,8 +117,45 @@
    margin-left: 15px;
 }
 
-/*---------Footer----------*/
+.chef{
+    width: 250px;
+    height: 250px;
+    float: right;   
+    margin-left: 100px;
+    margin-top: -40px;
+}
 
+.Chef_About{
+    display: inline-flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/*---------Choose us----------*/
+.ChooseUs{
+    color: #ffffff;
+    font-size: 30px;
+    margin-left: 12px;
+    margin-top: 20px;
+}
+
+.ChooseUs__point{
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 24px;
+}
+
+.Food_home{
+    float: right;
+    margin-left: 120px;
+}
+.cho_food{
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+/*---------Footer----------*/
 header{
     background-color: mediumaquamarine;
     color: #333;
@@ -145,7 +182,4 @@ footer{
 .footer__links a {
     color: #223333;
     text-decoration: none;
-}
-h3{
-    text-transform: uppercase;
 }
