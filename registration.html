@@ -33,8 +33,13 @@
             text-transform: uppercase;
         }
         img{
-            max-width: 10%;
+            max-width: 25%;
             height: auto;
+        }
+        button{
+            padding: 10px;
+            max-width:5%;
+            height:auto;
         }
     </style>
 </head>
@@ -53,7 +58,9 @@
         </nav>
         </header>
         <section class = top>
+            <br>
     <h3>Registration</h3>
+        </br>
     <form action="registration_process.php" method="post">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" placeholder="Josh" required>
@@ -73,10 +80,13 @@
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" placeholder="12345678" required>
         <br><br>
+
         <button type="submit">Register</button>
     </form>
+    <br>
     <p>Already have an account? <a href="login.html">Login here</a>.</p>
-    
+    </br>
+    </section>
     <!-- Add the chef image here -->
     <figure><img src="images/chef.png" alt="a chef">
         <figcaption>At your service</figcaption>
