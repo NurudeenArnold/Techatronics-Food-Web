@@ -6,9 +6,6 @@
     <title>Food Website</title>
     <style>
         /* Add your CSS styles here */
-        body{
-            background-color: aliceblue;
-        }
         .menu-container {
             display: none;
         }
@@ -43,10 +40,29 @@
         h1{
             text-transform: uppercase;
         }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar section -->
+    <!--Navbar section-->
     <nav class="navbar">
         <div class="navbar__container">
             <h1>TechFoods</h1>
@@ -55,6 +71,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+            <!--this is the unordered list for the nav-->
             <ul class="navbar__menu">
                 <li class="navbar__item">
                     <a href="index.html" class="navbar__links">Home</a>
@@ -65,6 +82,7 @@
                 <li class="navbar__item">
                     <a href="food.html" class="navbar__links">Food Menu</a>
                 </li>
+               
                 <li class="navbar__btn">
                     <!-- Change the href attribute to the registration/login page -->
                     <a href="login.html" class="button">Order Now</a>
@@ -75,59 +93,52 @@
             </ul>
         </div>
     </nav>
-
+    
     <!--Food items category-->
-    <ol>
-        <li>
-            <h3>Burger meals</h3>
-            <a href="Burger.html">
-            <img src="food menu img/burgers.png" alt="a delicious burger">
-            </a>
-        </li>
-        <li> 
-            <h3>Pizza meals</h3>
-            <a href="Pizza.html">
-            <img src="food menu img/pizza.png" alt="a delicious pizza">
-            </a>
-        </li>
-        <li>
-            <h3>Sandwich meals</h3>
-            <a href="sandwitch.html">
-            <img src="food menu img/sandwitch.png" alt="a delicious Sandwich">
-            </a>
-        </li>
-        <li>
-            <h3>Curry meals</h3>
-            <a href="curry.html">
-            <img src="food menu img/curry.png" alt="a delicious Curry">
-            </a>
-        </li>
-        <li> 
-            <h3>Fish meals</h3>
-            <a href="Fish.html">
-            <img src="food menu img/fish.png" alt="a delicious Fish">
-            </a>
-        </li> 
-        <li> 
-            <h3>Vegetarian meals</h3>
-            <a href="veg.html">
-            <img src="food menu img/veggies.png" alt="a delicious Veggies">
-            </a>
-        </li>
-        <li> 
-            <h3>Dessert meals</h3>
-            <a href="Desert.html">
-            <img src="food menu img/dessert.png" alt="a delicious Dessert">
-            </a>
-        </li> 
-        <li> 
-            <h3>Drinks menu</h3>
-            <a href="drinks.html">
-            <img src="food menu img/drink.png" alt="a refreshing drink">
-            </a>
-        </li>     
-    </ol>
-    <!-- Footer section -->
+    <div class="grid-container">
+        <div class="grid-item">
+            <h3>Burgers</h3>
+            <a href="Burger.html"><img src="food menu img/burgers.png" alt="a delicious burger"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Meat</h3>
+            <a href="meat.html"><img src="food menu img/meat2.jpg" alt="a delicious meat"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Pizza</h3>
+            <a href="Pizza.html"><img src="food menu img/pizza.png" alt="a delicious pizza"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Sandwich</h3>
+            <a href="sandwitch.html"><img src="food menu img/sandwitch.png" alt="a delicious Sandwich"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Pasta</h3>
+            <a href="pasta.html"><img src="food menu img/pasta1.jpg" alt="a delicious pasta"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Curry</h3>
+            <a href="curry.html"><img src="food menu img/curry.png" alt="a delicious curry"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Seafood</h3>
+            <a href="Fish.html"><img src="food menu img/fish.png" alt="a delicious fish"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Vegan food</h3>
+            <a href="veg.html"><img src="food menu img/veggies.png" alt="a delicious veg"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Dessert</h3>
+            <a href="Desert.html"><img src="food menu img/dessert.png" alt="a delicious dessert"></a>
+        </div>
+        <div class="grid-item">
+            <h3>Drinks</h3>
+            <a href="drinks.html"><img src="food menu img/drink.png" alt="a quenching drink"></a>
+        </div>
+    </div>
+
+    
     <footer>
         <ul class="footer__links">
             <li><a href="index.html">Home</a></li>
