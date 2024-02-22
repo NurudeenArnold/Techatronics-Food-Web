@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Contact Us</title>
     <style>
         /* Add your CSS styles here */
         body{
             background-color: aliceblue;
-        }
-        header{
-            background-color: mediumaquamarine;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
         }
         footer{
             background-color: mediumaquamarine;
@@ -45,37 +39,21 @@
 </head>
 <body>
     <!-- Navbar section -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <h1>TechFoods</h1>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="food.html" class="navbar__links">Food Menu</a>
-                </li>
-                <li class="navbar__btn">
-                    <!-- Change the href attribute to the registration/login page -->
-                    <a href="login.html" class="button">Order Now</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="contactus.html" class="navbar__links">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <header class = "header">
+        <a href="#top" class="logo">Tech
+            <span>Foods</span>
+        </a>
+        <nav class = "navbar">
+            <a href = "index.html">Home</a>
+            <a href = "index.html">About</a>
+            <a href = "food.html">Food Menu</a>
+            <a href = "contactus.html">Contact us</a>
+            <a href = "login.html">Order now</a>
+        </nav>
+        </header>
 
     <!--Contact us Section-->
-
+    <section class = top>
     <h3>We are working from:</h3>
     <p>Monday - Friday</p>
     <p><strong>08:00AM to 10:00PM</strong></p>
@@ -92,7 +70,7 @@
     <h3>Connect with us at:</h3>
     <a href = "https://www.facebook.com/capacitiza/"><img src = "images/facebook.png" style="width:50px;height:50px;"></a>
     <a href = "https://za.linkedin.com/showcase/capacitiza/"><img src = "images/linkedin.png" style="width:50px;height:50px;"></a>
-
+        </section>
     <!-- Footer section -->
     <footer>
         <ul class="footer__links">

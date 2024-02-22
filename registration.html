@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Registration - Food Website</title>
     <style>
         /* Add your CSS styles here */
         body{
             background-color: aliceblue;
-        }
-        header{
-            background-color: mediumaquamarine;
-            color: #333;
-            margin: 0;
-            padding: 20px;
         }
         footer{
             background-color: mediumaquamarine;
@@ -45,34 +40,19 @@
 </head>
 <body>
     <!-- Navbar section -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <h1>TechFoods</h1>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="food.html" class="navbar__links">Food Menu</a>
-                </li>
-                <li class="navbar__btn">
-                    <!-- Change the href attribute to the registration/login page -->
-                    <a href="login.html" class="button">Order Now</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="contactus.html" class="navbar__links">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <header class = "header">
+        <a href="#top" class="logo">Tech
+            <span>Foods</span>
+        </a>
+        <nav class = "navbar">
+            <a href = "index.html">Home</a>
+            <a href = "index.html">About</a>
+            <a href = "food.html">Food Menu</a>
+            <a href = "contactus.html">Contact us</a>
+            <a href = "login.html">Order now</a>
+        </nav>
+        </header>
+        <section class = top>
     <h3>Registration</h3>
     <form action="registration_process.php" method="post">
         <label for="name">Name:</label><br>
@@ -101,7 +81,7 @@
     <figure><img src="images/chef.png" alt="a chef">
         <figcaption>At your service</figcaption>
     </figure>
-
+    </section>
     <!-- Footer section -->
     <footer>
         <ul class="footer__links">
