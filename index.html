@@ -4,96 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Website</title>
-    <style>
-        /* Add your CSS styles here */
-        header{
-            background-color: mediumaquamarine;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        footer{
-            background-color: mediumaquamarine;
-            color: #223333;
-            text-align: center;
-            padding: 20px;
-        }
-        .footer__links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .footer__links li {
-            margin: 0 10px;
-        }
-        .footer__links a {
-            color: #223333;
-            text-decoration: none;
-        }
-        h3{
-            text-transform: uppercase;
-        }
-        h1{
-            text-transform: uppercase;
-        }
-    </style>
+
+    <!--Link tag to implement style from the style.css fule-->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="BackgroundIMG">
     <!-- Navbar section -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <h1>TechFoods</h1>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <section>
+        <nav class="navbar">
+            <div class="navbar__container">
+                <h1 class="logo">TechFoods</h1>
+                <div class="navbar__toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="navbar__menu">
+                    <li class="navbar__item">
+                        <a href="index.html" class="navbar__links">Home</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="#aboutus" class="navbar__links">About</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="food.html" class="navbar__links">Food Menu</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="contactus.html" class="navbar__links">Contact Us</a>
+                    </li>
+                    <li class="navbar__btn">
+                        <!-- Change the href attribute to the registration/login page -->
+                        <a href="login.html" class="button">Order Now</a>
+                    </li>
+                </ul>
             </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="#aboutus" class="navbar__links">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="food.html" class="navbar__links">Food Menu</a>
-                </li>
-                <li class="navbar__btn">
-                    <!-- Change the href attribute to the registration/login page -->
-                    <a href="login.html" class="button">Order Now</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="contactus.html" class="navbar__links">Contact Us</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        </nav> 
+    </section>
+        
     
     <!-- Video section -->
-    <video autoplay muted loop width="500">
-        <source src="Food ad.mp4" type="video/mp4"> 
-        <source src="Food ad.webm" type="video/webm">
-        Your browser does not support HTML5 video.
-    </video>
-    <p>Bytes of Flavor: Where Tech Meets Taste</p>
+    <section>
+        <div class="pos_cen">
+            <video autoplay muted loop width="600">
+                <source src="Food ad.mp4" type="video/mp4"> 
+                <source src="Food ad.webm" type="video/webm">
+                Your browser does not support HTML5 video.
+            </video>
+            <p class="Slogan">Bytes of Flavor, Where <br> Tech Meets Taste</p>
+        </div>    
+    </section>
 
     <!-- About us section -->
-    <h3 id = "aboutus">About us</h3>
-    <p>Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods, we are passionate about all things food and <br> 
-    are dedicated to providing you with delicious recipes, helpful cooking tips, and insightful articles to enhance your culinary journey. <br> 
-    Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to create memorable meals that nourish both body and soul.<br>  
-    With a diverse range of recipes spanning from comforting classics to innovative creations, there's something for everyone here. Join us as we explore<br>  
-    the world of gastronomy, two dish at a time.</p>
+   <section>
+    <div>
+        <h3 id="aboutus">About us</h3>
+    <p class="aboutWeb">Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods,<br>
+         we are passionate about all things food and are dedicated to providing you with delicious recipes,<br>
+         helpful cooking tips, and insightful articles to enhance your culinary journey.<br>
+         Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
+         create memorable meals that nourish both body and soul.  <br>
+         With a diverse range of recipes spanning from comforting classics to innovative creations,<br> 
+         there's something for everyone here. Join us as we explore the world of gastronomy, two dish at a time.</p>
 
     
     <figure><img src="images/chef.png" alt="a chef">
         <figcaption>At your service</figcaption>
     </figure>
+    </div>
+   </section>
 
     <!--why to choose us section-->
-    <h3>Why to choose us?</h3>
+    <section>
+        <h3>Why to choose us?</h3>
     <ul class="ChooseUs__point">
         <li class="ChooseUs__item">
             <p>We are fast and reliable</p>
@@ -104,23 +86,26 @@
         <li class="ChooseUs__item">
             <p>Cater for everyone and their preferred style of food</p>
         </li>
-        <li class="navbar__btn">
+        <li class="ChooseUs__item">
             <p>Best in the west</p>
         </li>
     </ul>
 
     <img src="images/food.png" alt="plate of a delicious food">
+    </section>
     
     <!-- Footer section -->
-    <footer>
-        <ul class="footer__links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#aboutus">About</a></li>
-            <li><a href="food.html">Food Menu</a></li>
-            <li><a href="login.html" class="button">Order Now</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-        </ul>
-        <p>Contact us at: Techatronics@TechFoods.com</p>
-    </footer>
+    <section>
+        <footer>
+            <ul class="footer__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="food.html">Food Menu</a></li>
+                <li><a href="login.html">Order Now</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+            </ul>
+            <p>Contact us at: Techatronics@TechFoods.com</p>
+        </footer>
+    </section>
 </body>
 </html>
