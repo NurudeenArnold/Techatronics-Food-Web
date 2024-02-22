@@ -47,6 +47,9 @@
 .logo:hover{
     transform: scale(1.1);
 }
+.logo span{
+    color: red;
+}
 .top{
     min-height: 100vh;
     padding: 10rem 5% 5rem;
@@ -65,7 +68,7 @@
     color:red;
     float:right;
     right: 12px;
-    font-size: 69px;
+    font-size: 70px;
     margin-top: 70px;
     margin-right: 100px;
     text-shadow: black 1px -1px;
