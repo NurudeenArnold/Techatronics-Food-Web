@@ -130,7 +130,7 @@
 
 /*----------Food menu-----------*/
 .Food_back{
-    background-image: url(Images/food_menu_background.png);
+    background-image: url(Images/food_menu_background\ \(1\).png);
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed;
@@ -159,6 +159,36 @@
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+/*---------Food_items----------*/
+.Food_type_name{
+font-size: 50px;
+color: white;
+}
+.Food_type ol{
+    justify-content: space-between; 
+    margin-top: 30px;
+    font-size: 30px;
+    color: white;
+}
+.Food_type p{
+    font-size: 30px;
+    color: white;
+    font-weight: 100px;
+    font-style: italic;
+    margin-left: -12px;
+    margin-top: 20px;
+}
+.Food_type img{
+    width: 300px;
+    height: 200px;
+}
+.Food_type button{
+    font-size: 40px;
+    float: right;
+    margin-right: 49%;
+    margin-top: -40px;
 }
 /*---------Footer----------*/
 footer{
