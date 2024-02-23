@@ -3,63 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Food Website</title>
-    <style>
-        /* Add your CSS styles here */
-        body{
-            background-color: aliceblue;
-        }
-        .menu-container {
-            display: none;
-        }
-        .menu-container.show {
-            display: block;
-        }
-        footer{
-            background-color: mediumaquamarine;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-        }
-        footer ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        footer li {
-            margin: 0 10px;
-        }
-        footer a {
-            text-decoration: none;
-            color: #333;
-        }
-        h1{
-            text-transform: uppercase;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-        .grid-item {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-        }
-        .grid-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="Food_back">
     <!-- Navbar section -->
     <header class = "header">
         <a href="index.html" class="logo">Tech
@@ -134,9 +81,10 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html">About</a></li>
             <li><a href="food.html">Food Menu</a></li>
-            <li><a href="login.html" class="button">Order Now</a></li>
+            <li><a href="login.html">Order Now</a></li>
             <li><a href="contactus.html">Contact us</a></li>
         </ul>
+        <br>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
 </body>
