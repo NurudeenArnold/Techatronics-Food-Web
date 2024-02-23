@@ -189,6 +189,52 @@ color: white;
     float: right;
     margin-right: 49%;
     margin-top: -40px;
+/*---------Contact us----------*/
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: 0.2rem solid white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    color: white;
+    margin: 1rem 1rem 1rem 0;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+.social-media a:hover{
+    color: black;
+    transform: scale(1.2)translateY(-5px);
+    box-shadow:0 0 25px white;
+    background-color: white;
+}
+.contactus {
+    min-height: 100vh;
+    padding: 10rem 5% 5rem;
+    text-align: center;
+    justify-content: center;
+    text-shadow: black 1px -1px;
+}
+.contactus h3 {
+    color: white;
+    padding: 3rem;
+    font-size: 3rem;
+}
+.contactus p {
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem;
+}
+.contactus p a{
+    color: white;
+}
+.contactus iframe {
+    -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
 }
 /*---------Footer----------*/
 footer{
