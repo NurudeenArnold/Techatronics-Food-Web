@@ -192,6 +192,7 @@ color: white;
 }
 /*---------Contact us----------*/
 .social-media a{
+    text-shadow: none !important;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -207,7 +208,7 @@ color: white;
     text-decoration: none;
 }
 .social-media a:hover{
-    color: black;
+    color: red;
     transform: scale(1.2)translateY(-5px);
     box-shadow:0 0 25px white;
     background-color: white;
@@ -231,6 +232,9 @@ color: white;
 }
 .contactus p a{
     color: white;
+}
+.contactus span{
+    color: red;
 }
 .contactus iframe {
     -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
