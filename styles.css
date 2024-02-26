@@ -149,11 +149,12 @@
     padding: 20px;
 }
 .grid-item {
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
+    background-color: black;
+    border: 1px solid white;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
+    color: white;
 }
 .grid-item img {
     max-width: 100%;
