@@ -80,14 +80,13 @@
 #aboutus{
     color: #ffffff;
     font-size: 30px;
-    margin-top: 30px;
 }
 
 .aboutWeb{
     color: white;
    font-size: 24px;
    font-weight: 10px;
-   margin-top: 10px;
+   margin: 30px;
 }
 
 .chef{
@@ -139,13 +138,13 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding: 20px;
 }
 .grid-item {
     background-color: black;
-    border: 1px solid white;
+    border: 1px solid var(--text-color);
     border-radius: 8px;
     padding: 10px;
     text-align: center;
@@ -251,6 +250,7 @@ footer a {
     font-size: 1.5rem;
     margin-inline: 0.1rem;
     border: 0;
+    margin-top: 0;
 }
 
 /*---------Login----------*/
