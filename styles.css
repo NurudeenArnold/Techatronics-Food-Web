@@ -6,7 +6,7 @@
     scroll-behavior: smooth;
 }
 :root{
-    --text-color: rgb(255, 100, 100);
+    --text-color: rgb(252, 59, 59);
 }
 .BackgroundIMG{
     background-image: url(Images/Background\ food\ \(7\).png);
