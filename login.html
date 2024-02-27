@@ -4,34 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <title>Login - Food Website</title>
     <style>
-        /* Add your CSS styles here */
-        body {
-            background-color: aliceblue;
-        }
-        footer{
-            background-color: mediumaquamarine;
-            color: #223333;
-            text-align: center;
-            padding: 20px;
-        }
-        .footer__links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .footer__links li {
-            margin: 0 10px;
-        }
-        .footer__links a {
-            color: #223333;
-            text-decoration: none;
-        }
-        h1{
-            text-transform: uppercase;
-        }
         img{
             max-width: 20%;
             height: auto;
@@ -45,12 +20,10 @@
             cursor: pointer;
             max-width:5%;
             height:auto;
-            
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar section -->
     <header class = "header">
     <a href="index.html" class="logo">Tech
@@ -66,18 +39,19 @@
     </header>
 
     <section class = top>
+        <div class="login">
         <br>
           <h3>Login</h3>
        </br>
-<form action="login_process.php" method="post">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" placeholder="capaciti25" required>
-    <br><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" placeholder="12345678" required>
-    <br><br>
-    <button type="submit">Login</button>
-</form>
+        <form action="login_process.php" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="capaciti25" required>
+            <br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="12345678" required>
+            <br><br>
+            <button type="submit">Login</button>
+        </form>
 <br>
 <p>Don't have an account? <a href="registration.html">Register here</a>.</p>
 </br>
@@ -85,19 +59,14 @@
 <figure><img src="images/chef.png" alt="a chef">
     <figcaption>At your service</figcaption>
 </figure>
-
+</div>
 <!-- Button to go to index.html -->
 </section>
 <!-- Footer section -->
 <footer>
-    <ul class="footer__links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html">About</a></li>
-        <li><a href="food.html">Food Menu</a></li>
-        <li><a href="login.html" class="button">Order Now</a></li>
-        <li><a href="contactus.html">Contact us</a></li>
-    </ul>
     <p>Contact us at: Techatronics@TechFoods.com</p>
+    <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
 </footer>
 </body>
 </html>

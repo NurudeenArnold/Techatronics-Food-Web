@@ -5,6 +5,9 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+:root{
+    --text-color: rgb(255, 100, 100);
+}
 .BackgroundIMG{
     background-image: url(Images/Background\ food\ \(7\).png);
     background-repeat: no-repeat;
@@ -25,17 +28,17 @@
     z-index: 100;
 }
 .navbar a{
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: white;
-    margin-left: 4rem;
+    margin-left: 3rem;
     font-weight: 500;
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
 .navbar a:hover,
 .navbar a.active{
-    color: red;
-    border-bottom: 3px solid red;
+    color: var(--text-color);
+    border-bottom: 3px solid var(--text-color);
 }
 .logo{
     font-size: 3rem;
@@ -48,7 +51,7 @@
     transform: scale(1.1);
 }
 .logo span{
-    color: red;
+    color: var(--text-color);
 }
 .top{
     min-height: 100vh;
@@ -65,10 +68,10 @@
 
 /*-------------Slogan-----------*/
 .Slogan{
-    color:red;
+    color:var(--text-color);
     float:right;
     right: 12px;
-    font-size: 70px;
+    font-size: 4rem;
     margin-top: 70px;
     margin-right: 10px;
     text-shadow: black 1px -1px;
@@ -78,7 +81,6 @@
     color: #ffffff;
     font-size: 30px;
     margin-top: 30px;
-    margin-left: 15px;
 }
 
 .aboutWeb{
@@ -86,7 +88,6 @@
    font-size: 24px;
    font-weight: 10px;
    margin-top: 10px;
-   margin-left: 15px;
 }
 
 .chef{
@@ -95,12 +96,6 @@
     float: right;   
     margin-left: 100px;
     margin-top: -40px;
-}
-
-.Chef_About{
-    display: inline-flex;
-    justify-content: space-between;
-    position: relative;
 }
 
 /*---------Choose us----------*/
@@ -191,8 +186,9 @@ color: white;
     margin-right: 49%;
     margin-top: -40px;
 }
+
 /*---------Contact us----------*/
-.social-media a{
+.social-media a, footer a{
     text-shadow: none !important;
     display: inline-flex;
     justify-content: center;
@@ -209,7 +205,7 @@ color: white;
     text-decoration: none;
 }
 .social-media a:hover{
-    color: red;
+    color: var(--text-color);
     transform: scale(1.2)translateY(-5px);
     box-shadow:0 0 25px white;
     background-color: white;
@@ -235,30 +231,48 @@ color: white;
     color: white;
 }
 .contactus span{
-    color: red;
+    color: var(--text-color);
 }
 .contactus iframe {
     -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
 }
+
 /*---------Footer----------*/
 footer{
-    background-color: mediumaquamarine;
-    color: #223333;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
     text-align: center;
     padding: 20px;
 }
-.footer__links {
-    list-style: none;
-    padding: 0;
-    display: flex;
+footer a {
+    border-radius: 0% !important;
+    font-size: 1.5rem;
+    margin-inline: 0.1rem;
+    border: 0;
+}
+
+/*---------Login----------*/
+/* .login{
     justify-content: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.9)
 }
-.footer__links li {
-    margin: 0 10px;
+.login input
+{
+    font-size: 1rem;
 }
-.footer__links a {
-    color: #223333;
-    text-decoration: none;
+.login form {
+    font-size: 2rem;
 }
+
+.login button[type="submit"] {
+    transition: 0.3 ease-in-out;
+    background-color: white;
+    color: black;
+    transform: scale(1.2)translateY(-5px);
+
+} */
+
