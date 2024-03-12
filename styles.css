@@ -1,3 +1,4 @@
+/*---------Global----------*/
 *{
     margin: 0;
     padding:0;
@@ -8,12 +9,79 @@
 :root{
     --text-color: rgb(252, 59, 59);
 }
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+::-ms-input-placeholder {
+    color: white;
+}
 .BackgroundIMG{
     background-image: url(Images/food_background\ \(1\).png);
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed;
 }
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 0.5rem;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+}
+input:focus{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+input:focus ~ .icon {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05) translateY(-45%) translateX(-15%);
+}
+.form {
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    border: 2px solid white;
+    transition: 0.3s ease-in-out;
+    -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+}
+.field-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.field-group input{
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    width: calc(100% - 1rem);
+}
+.icon {
+    position: absolute;
+    left: 8px;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3em;
+}
+/*---------Navigation & Logo----------*/
 .header {
     position: fixed;
     top: 0;
@@ -56,8 +124,8 @@
 .top{
     min-height: 100vh;
     padding: 10rem 5% 5rem;
+    margin-top: 3rem;
 }
-
 .navbar__btn{
     display: flex;
     justify-content: center;
@@ -66,7 +134,7 @@
     width: 100%;
 }
 
-/*-------------Slogan-----------*/
+/*-------------Home-----------*/
 .Slogan{
     color:var(--text-color);
     float:right;
@@ -199,7 +267,7 @@ color: white;
     font-size: 1.5rem;
     border-radius: 50%;
     color: white;
-    margin: 1rem 1rem 1rem 0;
+    margin: 0rem 0.5rem;
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
@@ -244,6 +312,7 @@ footer{
     color: #ffffff;
     text-align: center;
     padding: 20px;
+    margin-top: 1.5rem;
 }
 footer a {
     border-radius: 0% !important;
@@ -252,29 +321,6 @@ footer a {
     border: 0;
     margin-top: 0;
 }
-
-/*---------Login----------*/
-/* .login{
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.9)
-}
-.login input
-{
-    font-size: 1rem;
-}
-.login form {
-    font-size: 2rem;
-}
-
-.login button[type="submit"] {
-    transition: 0.3 ease-in-out;
-    background-color: white;
-    color: black;
-    transform: scale(1.2)translateY(-5px);
-
-} */
 /*---------ScrollBar----------*/
 ::-webkit-scrollbar{
     width: 15px;

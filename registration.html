@@ -5,29 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
     <title>Registration - Food Website</title>
     <style>
-        body{
-            background-color: aliceblue;
+        .top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        img{
-            max-width: 25%;
-            height: auto;
+        #registrationForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        button{
-            background-color: black;
-            color:white;
+        #registrationForm h3{
+            font-size: 3rem;
+            color: white;
+            margin: 1.5rem;
+            transition: 0.3s ease-in-out;
+        }
+        #registrationForm h3:hover{
+            color: red;
+            transform: scale(1.2);
+        }
+        #registrationForm a{
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+        #registrationForm a:hover{
+            color: red;
+        }
+        #registrationForm p{
+            margin-top: 1.5rem;
+        }
+        #registrationbtn {
+            font-size: 1rem;
+            background: transparent;
+            color: white;
             padding: 12px 20px;
-            border: none;
-            border-radius: 9px;
+            border: 2px solid white;
+            border-radius: 40px;
             cursor: pointer;
-            max-width:6%;
-            height:auto;
-            
+            margin-top: 10px;
+            width: 100%;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s ease-in-out;
+        }
+        #registrationbtn:hover{
+            transform: scale(1.05);
+            color: red;
+            background-color: white;
         }
     </style>
 </head>
-<body>
+<body class="BackgroundIMG">
     <!-- Navbar section -->
     <header class = "header">
         <a href="index.html" class="logo">Tech
@@ -40,41 +76,44 @@
             <a href = "contactus.html">Contact us</a>
             <a href = "login.html">Order now</a>
         </nav>
-        </header>
-        <section class = top>
-            <br>
-    <h3>Registration</h3>
-        </br>
-    <form action="registration_process.php" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" placeholder="Josh" required>
-        <br><br>
-        <label for="surname">Surname:</label><br>
-        <input type="text" id="surname" name="surname" placeholder="Williams" required>
-        <br><br>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" placeholder="capaciti25" required>
-        <br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" placeholder="capaciti@saltriver.org.za" required>
-        <br><br>
-        <label for="contact">Contact:</label><br>
-        <input type="tel" id="contact" name="contact" placeholder="018234567" required>
-        <br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" placeholder="12345678" required>
-        <br><br>
-
-        <button type="submit">Register</button>
-    </form>
-    <br>
-    <p>Already have an account? <a href="login.html">Login here</a>.</p>
-    </br>
-    </section>
-    <!-- Add the chef image here -->
-    <figure><img src="images/chef.png" alt="a chef">
-        <figcaption>At your service</figcaption>
-    </figure>
+    </header>
+    <section class = top>
+        <div class="form">
+            <form action="" id="registrationForm">
+                <h3>Register</h3>
+                <div class="field-group">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <input type="text" id="surname" name="surname" placeholder="Surname" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <input type="tel" id="contact" name="contact" placeholder="Phone Number" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>                <button type="submit" id="registrationbtn">Register</button>
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+            </form>
+        </div>
     </section>
     <!-- Footer section -->
     <footer>
