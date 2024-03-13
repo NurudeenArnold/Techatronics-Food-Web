@@ -22,6 +22,9 @@
     background-size: auto;
     background-attachment: fixed;
 }
+span {
+    color: var(--text-color);
+}
 input {
     width: 100%;
     padding: 10px;

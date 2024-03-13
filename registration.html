@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <title>Registration - Food Website</title>
     <style>
         .top {
@@ -41,7 +47,7 @@
         #registrationForm p{
             margin-top: 1.5rem;
         }
-        #registrationbtn {
+        #registrationbtn{
             font-size: 1rem;
             background: transparent;
             color: white;
@@ -110,7 +116,8 @@
                     <div class="icon">
                         <i class="fa-solid fa-lock"></i>
                     </div>
-                </div>                <button type="submit" id="registrationbtn">Register</button>
+                </div>                
+                <input type="submit" id="registrationbtn" value="Register">
                 <p>Already have an account? <a href="login.html">Login here</a></p>
             </form>
         </div>
@@ -121,5 +128,6 @@
         <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
