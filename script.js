@@ -12,12 +12,14 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-/*-----------------------------------------Register Button-----------------------------------------*/
-var registrationForm = document.getElementById("registrationForm");
-registrationForm.addEventListener("submit", function(event){
-    event.preventDefault()  
+document.addEventListener('DOMContentLoaded', function() {
+    // Event listener for the parent element containing both forms
+    document.body.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
 
-    //Assign user input to vairables
+        // Check if the submitted form is the registration form
+        if (event.target.id === 'registrationForm') {
+            //Assign user input to vairables
     name = document.getElementById("name").value;
     surname= document.getElementById("surname").value;
     email = document.getElementById("email").value;
@@ -42,7 +44,8 @@ registrationForm.addEventListener("submit", function(event){
             name : name,
             surname : surname,
             email : email,
-            contact : contact
+            contact : contact,
+            last_login: Date.now()
         }
         database_ref.child("users/" + user.uid).set(user_data) //Add user data under node "users/" in Realtime Database
 
@@ -60,7 +63,44 @@ registrationForm.addEventListener("submit", function(event){
             }
         });
     }).catch(DisplayError) //display any error that might occur when registering (password, email, etc)
+        }
+
+        // Check if the submitted form is the login form
+        if (event.target.id === 'loginForm') {
+            //Assign user input to vairables
+    email = document.getElementById("email").value;
+    password = document.getElementById("password").value;
+
+    auth.signInWithEmailAndPassword(email, password) //Authentication on Firebase
+    .then(function() { //Adding data to Realtime Database
+        var user = auth.currentUser
+        var database_ref = database.ref()
+        var user_data = {
+            last_login: Date.now()
+        }
+        database_ref.child("users/" + user.uid).update(user_data) //Add user data under node "users/" in Realtime Database
+
+        Swal.fire({ //Alert Success Registration
+            title: "Thank you for signing up for Tech<span> Foods</span>!",
+            text: "Your interest in joining our community is appreciated!",
+            color: "#ffffff",
+            icon: "success",
+            confirmButtonColor: "#ff3333",
+            iconColor: "#ff3333",
+            confirmButtonText: "Okay"
+        }).then((result) => { //Once the window is closed, redirect user to login.html
+            if (result.isConfirmed) {
+                window.location.href = "index.html";
+            }
+        });
+    }).catch(DisplayError) //display any error that might occur when registering (password, email, etc)
+        }
+    });
 });
+/*-----------------------------------------Login Button-----------------------------------------*/
+
+/*-----------------------------------------Register Button-----------------------------------------*/
+
 
 /*-----------------------------------------Functions-----------------------------------------*/
 function DisplayError(error){ //Display Error Method

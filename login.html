@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <title>Login - Food Website</title>
     <style>
         .top {
@@ -26,7 +32,7 @@
             transition: 0.3s ease-in-out;
         }
         #loginForm h3:hover{
-            color: var(--text-color);
+            color: red;
             transform: scale(1.2);
         }
         #loginForm a{
@@ -36,7 +42,7 @@
             font-weight: 600;
         }
         #loginForm a:hover{
-            color: var(--text-color);
+            color: red;
         }
         #loginForm p{
             margin-top: 1.5rem;
@@ -58,7 +64,7 @@
         }
         #loginbtn:hover{
             transform: scale(1.05);
-            color: var(--text-color);
+            color: red;
             background-color: white;
         }
     </style>
@@ -66,7 +72,8 @@
 <body class="BackgroundIMG">
     <!-- Navbar section -->
     <header class = "header">
-        <a href="index.html" class="logo">TechFoods
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
         </a>
         <nav class = "navbar">
             <a href = "index.html">Home</a>
@@ -93,7 +100,7 @@
                         <i class="fa-solid fa-lock"></i>
                     </div>
                 </div>
-                <button type="submit" id="loginbtn">Login</button>
+                <input type="submit" id="loginbtn" value="Login">
                 <p>Don't have an account? <a href="registration.html">Register here</a></p>
             </form>
         </div>
@@ -104,5 +111,7 @@
     <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
     <p>Contact us at: Techatronics@TechFoods.com</p>
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
