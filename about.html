@@ -20,6 +20,10 @@
         :root {
             --text-color: rgb(252, 149, 59);
         }
+       
+        h3#aboutus {
+    text-align: center;
+}
 
         body {
             padding: 0;
@@ -77,42 +81,44 @@
         }
 
        /* Header Styles */
-.header {
+
+       .header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 1rem 2%; /* Adjust padding for better spacing */
+    padding: 1rem 9%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 6;
+    z-index: 100;
 }
-
-.logo {
-    font-size: 2rem; /* Adjust logo size */
-    color:  rgb(252, 149, 59);
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.navbar {
-    display: flex;
-    align-items: center;
-}
-
-.navbar a {
-    font-size: 1rem; /* Adjust navbar link size */
+.navbar a{
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: white;
-    margin-left: 2rem;
+    margin-left: 3rem;
     font-weight: 500;
     transition: 0.3s ease-in-out;
     text-decoration: none;
 }
-
 .navbar a:hover,
-.navbar a.active {
+.navbar a.active{
     color: var(--text-color);
     border-bottom: 3px solid var(--text-color);
+}
+.logo{
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.logo:hover{
+    transform: scale(1.1);
 }
 
 .top {
@@ -151,13 +157,14 @@ footer {
 
     <!-- Navbar section -->
     <header class="header">
-        <a href="#top" class="logo">TechFoods</a>
+        <a href="#top" class="logo">Tech Foods</a>
         </a>
         <nav class="navbar">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="food.html">Food Menu</a>
             <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
             <a href="login.html">Order now</a>
         </nav>
     </header>
