@@ -85,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             text: "Your interest in joining our community is appreciated!",
             color: "#ffffff",
             icon: "success",
-            confirmButtonColor: "#ff3333",
-            iconColor: "#ff3333",
+            confirmButtonColor: "var(--text-color)",
+            iconColor: "var(--text-color)",
             confirmButtonText: "Okay"
         }).then((result) => { //Once the window is closed, redirect user to login.html
             if (result.isConfirmed) {
