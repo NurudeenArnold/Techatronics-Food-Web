@@ -7,78 +7,162 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
-        h3{
-            background-color: black;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
+        /* Styling for the overlay */
+        #overlay {
+            position: absolute; /* Position it relative to the body */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black color */
+            pointer-events: none; /* Allows clicks to fall through to the underlying elements */
+            z-index: -1; /* Ensure the overlay is behind other content */
         }
+        /* Styling for the background image */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('bg-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative; /* Ensure the body is positioned */
+            text-align: left;
+        }
+        /* Styling for the content */
+        .content {
+            position: relative;
+            z-index: 1; /* Ensure the content is above the overlay */
+            padding: 20px;
+            color: white; /* Example content color */
+        }
+        .Slogan {
+            position: absolute;
+            left: 40%;
+            top: 35%;
+            transform: translate(-50%, -50%);
+            color: rgb(252, 149, 59);
+            font-size: 50px;
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .Slogan span {
+            color: antiquewhite;
+            font-size: 20px;
+        }
+        .Slogan a.order-now-button {
+            background-color: rgb(252, 149, 59); /* Orange button */
+            color: black;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block; /* Ensure button stays in line */
+}
+
+.Slogan a.order-now-button:hover {
+    background-color: rgb(236, 124, 45); /* Darker orange on hover */
+}
+        img {
+            position: absolute;
+            top: 50%;
+            right: 250px;
+            transform: translateY(-50%) rotate(0deg); /* Initial rotation angle */
+            max-width: 400px; /* Adjust the max width as needed */
+            animation: spin 30s linear infinite; /* Animation properties */
+        }
+        @keyframes spin {
+            from {
+                transform: translateY(-50%) rotate(0deg); /* Start rotation angle */
+            }
+            to {
+                transform: translateY(-50%) rotate(360deg); /* End rotation angle */
+            }
+        }
+       
     </style>
 </head>
-    <!-- Navbar section -->
-    <header class = "header">
-        <a href="#top" class="logo">Tech
-            <span>Foods</span>
-        </a>
-        <nav class = "navbar">
-            <a href = "#top">Home</a>
-            <a href = "#aboutus">About</a>
-            <a href = "food.html">Food Menu</a>
-            <a href = "contactus.html">Contact us</a>
-            <a href = "login.html">Order now</a>
-        </nav>
-    </header>
-<body class="BackgroundIMG">
-    <!-- Video section -->
-    <section class="top" id="top">
-        <div class="pos_cen">
-            <video autoplay muted loop width="580">
-                <source src="Food ad.mp4" type="video/mp4"> 
-                <source src="Food ad.webm" type="video/webm">
-                Your browser does not support HTML5 video.
-            </video>
-            <p class="Slogan">Bytes of Flavor, Where <br> Tech Meets Taste</p>
-        </div>    
-    </section>
+<body>
 
-    <!-- About us section -->
-   <section>
-    
-    <h3 id="aboutus">About us</h3>
-    <div class="Chef_About">
-        <p class="aboutWeb">Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods,<br>
-            we are passionate about all things food and are dedicated to providing you with delicious recipes,<br>
-            helpful cooking tips, and insightful articles to enhance your culinary journey.<br>
-            Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
-            create memorable meals that nourish both body and soul.  <br>
-             With a diverse range of recipes spanning from comforting classics to innovative creations,<br> 
-            there's something for everyone here. Join us as we explore the world of gastronomy, two dish at a time.
-        </p>
-    </div>
-    
-   </section>
+ <!-- Navbar section -->
+ <section>
+ <header class="header">
+  <a href="#top" class="logo">TechFoods
+  </a>
+  <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="food.html">Food Menu</a>
+      <a href="contactus.html">Contact us</a>
+      <a href="login.html">Order now</a>
+  </nav>
+</header>
 
-    <!--why to choose us section-->
-    <section>
-        <h3 class="ChooseUs">Why to choose us?</h3>
-        <div class="cho_food">
-            <ul class="ChooseUs__point">
-                <li class="ChooseUs__item">
-                    <p>We are fast and reliable</p>
-                </li>
-                <li class="ChooseUs__item">
-                    <p>Flavourful food</p>
-                </li>
-                <li class="ChooseUs__item">
-                    <p>Cater for everyone and their preferred style of food</p>
-                </li>
-                <li class="ChooseUs__item">
-                    <p>Best in the west</p>
-                </li>
-            </ul>
-        </div>       
+
+
+<p class="Slogan">Bytes of Flavor, Where <br> Tech Meets Taste.<br><span>Welcome to TechFoods, your ultimate destination for culinary inspiration!</span><br><a href="food.html" class="order-now-button">Order Now</a></p>
+    <br>
+    <br>
+    <a href="food.html" button>Order Now</a>
+</p>
+
+
+<img src="hero.png"> 
+
+<div id="overlay"></div> 
+<!-- Your content goes here -->
+
+
+<script>
+    // JavaScript to toggle the overlay
+    window.onload = function() {
+    var overlay = document.getElementById('overlay');
+    // Toggle the overlay when the body is clicked
+    document.body.onclick = function() {
+        overlay.style.display = (overlay.style.display == 'block') ? 'none' : 'block';
+    };
+    };
+</script>
+</section>
     </section>
+    <br>
+    <br>
+       <br>
+          <br>
+             <br>
+                 <br>
+                     <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <!-- Footer section -->
     <footer>
         <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>

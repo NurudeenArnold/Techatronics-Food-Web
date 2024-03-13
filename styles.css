@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
 }
 :root{
-    --text-color: rgb(252, 59, 59);
+    --text-color: rgb(252, 149, 59);
 }
 ::placeholder {
     color: white;
@@ -113,10 +113,11 @@ input:focus ~ .icon {
 }
 .logo{
     font-size: 3rem;
-    color: white;
+    color: rgb(252, 149, 59);
     cursor: pointer;
     transition: 0.3s ease-in-out;
     text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .logo:hover{
     transform: scale(1.1);
@@ -147,7 +148,27 @@ input:focus ~ .icon {
     margin-right: 10px;
     text-shadow: black 1px -1px;
 }
+.Slogan span {
+    color: antiquewhite;
+    font-size: 20px;
+}
+.Slogan a.order-now-button {
+    background-color: rgb(252, 149, 59); /* Orange button */
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block; /* Ensure button stays in line */
+}
 
+.Slogan a.order-now-button:hover {
+background-color: rgb(236, 124, 45); /* Darker orange on hover */
+}
 #aboutus{
     color: #ffffff;
     font-size: 30px;
