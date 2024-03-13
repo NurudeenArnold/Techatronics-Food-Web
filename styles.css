@@ -2,19 +2,20 @@
 *{
     margin: 0;
     padding:0;
-    font-family: 'Poppins', sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 :root{
     --text-color: rgb(252, 149, 59);
+    --text2-color: white;
 }
 ::placeholder {
-    color: white;
+    color: var(--text2-color);
     opacity: 1;
 }
 ::-ms-input-placeholder {
-    color: white;
+    color: var(--text2-color);
 }
 .BackgroundIMG{
     background-image: url(Images/food_background\ \(1\).png);
@@ -33,7 +34,7 @@ input {
     border: none;
     border-bottom: 2px solid white;
     background: transparent;
-    color: white;
+    color: var(--text2-color);
 }
 input:focus{
     outline: none;
@@ -53,7 +54,7 @@ input:focus ~ .icon {
     max-width: 400px;
     width: 100%;
     text-align: center;
-    color: white;
+    color: var(--text2-color);
     border: 2px solid white;
     transition: 0.3s ease-in-out;
     -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
@@ -81,7 +82,7 @@ input:focus ~ .icon {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text2-color);
     font-size: 1.3em;
 }
 /*---------Navigation & Logo----------*/
@@ -113,7 +114,7 @@ input:focus ~ .icon {
 }
 .logo{
     font-size: 3rem;
-    color: rgb(252, 149, 59);
+    color: var(--text-color);
     cursor: pointer;
     transition: 0.3s ease-in-out;
     text-decoration: none;
@@ -153,7 +154,7 @@ input:focus ~ .icon {
     font-size: 20px;
 }
 .Slogan a.order-now-button {
-    background-color: rgb(252, 149, 59); /* Orange button */
+    background-color: var(--text-color); /* Orange button */
     color: black;
     padding: 12px 24px;
     text-decoration: none;
@@ -167,15 +168,15 @@ input:focus ~ .icon {
 }
 
 .Slogan a.order-now-button:hover {
-background-color: rgb(236, 124, 45); /* Darker orange on hover */
+background-color: var(--text-color); /* Darker orange on hover */
 }
 #aboutus{
-    color: #ffffff;
+    color: var(--text2-color);
     font-size: 30px;
 }
 
 .aboutWeb{
-    color: white;
+    color: var(--text2-color);
    font-size: 24px;
    font-weight: 10px;
    margin: 30px;
@@ -191,14 +192,14 @@ background-color: rgb(236, 124, 45); /* Darker orange on hover */
 
 /*---------Choose us----------*/
 .ChooseUs{
-    color: #ffffff;
+    color: var(--text2-color);
     font-size: 30px;
     margin-left: 12px;
     margin-top: 20px;
 }
 
 .ChooseUs__point{
-    color: #ffffff;
+    color: var(--text2-color);
     margin-top: 20px;
     margin-left: 30px;
     font-size: 24px;
@@ -240,7 +241,7 @@ background-color: rgb(236, 124, 45); /* Darker orange on hover */
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    color: white;
+    color: var(--text2-color);
 }
 .grid-item img {
     max-width: 100%;
@@ -251,17 +252,17 @@ background-color: rgb(236, 124, 45); /* Darker orange on hover */
 /*---------Food_items----------*/
 .Food_type_name{
 font-size: 50px;
-color: white;
+color: var(--text2-color);
 }
 .Food_type ol{
     justify-content: space-between; 
     margin-top: 30px;
     font-size: 30px;
-    color: white;
+    color: var(--text2-color);
 }
 .Food_type p{
     font-size: 30px;
-    color: white;
+    color: var(--text2-color);
     font-weight: 100px;
     font-style: italic;
     margin-left: -12px;
@@ -290,7 +291,7 @@ color: white;
     border: 0.2rem solid white;
     font-size: 1.5rem;
     border-radius: 50%;
-    color: white;
+    color: var(--text2-color);
     margin: 0rem 0.5rem;
     transition: 0.3s ease-in-out;
     text-decoration: none;
@@ -309,17 +310,17 @@ color: white;
     text-shadow: black 1px -1px;
 }
 .contactus h3 {
-    color: white;
+    color: var(--text2-color);
     padding: 3rem;
     font-size: 3rem;
 }
 .contactus p {
     font-size: 1.5rem;
-    color: white;
+    color: var(--text2-color);
     padding: 1rem;
 }
 .contactus p a{
-    color: white;
+    color: var(--text2-color);
 }
 .contactus span{
     color: var(--text-color);
@@ -333,7 +334,7 @@ color: white;
 /*---------Footer----------*/
 footer{
     background-color: rgb(0, 0, 0);
-    color: #ffffff;
+    color: var(--text2-color);
     text-align: center;
     padding: 20px;
     margin-top: 1.5rem;
