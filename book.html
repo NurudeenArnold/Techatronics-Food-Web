@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <title>Reservation Table</title>
+    
+    
+</head>
+<body class="BackgroundIMG">
+<header class="header">
+    <a href="index.html" class="logo">Tech
+        <span>Foods</span>
+    </a>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="index.html">About</a>
+        <a href="food.html">Food Menu</a>
+        <a href="contactus.html">Contact us</a>
+        <a href="book.html">Book a table</a>
+        <a href="login.html">Order now</a>
+    </nav>
+</header>
+
+<div class="reservation-form">
+    <h2>MAKE A RESERVATION</h2>
+    <form id="reservationForm">
+        <div class="field-group">
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+        
+        <div class="field-group">
+            <input type="email" id="email" placeholder="Enter your email" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+        </div>
+        <div class="field-group">
+            <input type="datetime-local" id="datetime" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+        </div>
+        <div class="field-group">
+            <input type="number" id="people" placeholder="Enter the number of people" min="1" max="10" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+        <button type="submit">Submit Reservation</button>
+    </form>
+</div>
+
+<footer>
+    <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    <p>Contact us at: Techatronics@TechFoods.com</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

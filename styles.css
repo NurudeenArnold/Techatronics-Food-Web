@@ -85,6 +85,7 @@ input:focus ~ .icon {
     color: var(--text2-color);
     font-size: 1.3em;
 }
+
 /*---------Navigation & Logo----------*/
 .header {
     position: fixed;
@@ -215,6 +216,106 @@ background-color: var(--text-color); /* Darker orange on hover */
     padding: 10px;
 }
 
+/*----------Reservation page------*/
+.reservation-form{
+backdrop-filter: blur(10px);
+padding: 20px;
+border-radius: 10px;
+max-width: 500px;
+width: 100%;
+text-align: center;
+color: white;
+border: 2px solid white;
+transition: 0.3s ease-in-out;
+-webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+-moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+margin: 200px auto;
+ }
+ 
+.reservation-form button {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+        
+.reservation-form h2{
+font-size: 3rem;
+color: white;
+margin: 1.5rem;
+transition: 0.3s ease-in-out;
+        }
+
+
+.reservation-form h2:hover{
+color: rgb(252, 149, 59);
+transform: scale(1.2);
+ }
+.reservation-form a{
+color: white;
+text-decoration: none;
+transition: 0.3s ease-in-out;
+font-weight: 600;
+ }
+
+.reservation-form a:hover{
+color: rgb(252, 149, 59);
+}
+
+.reservation-form p{
+margin-top: 1.5rem;
+ }
+        
+.reservation-form button {
+font-size: 1rem;
+background: transparent;
+color: white;
+padding: 12px 20px;
+border: 2px solid white;
+border-radius: 40px;
+cursor: pointer;
+margin-top: 10px;
+width: 100%;
+margin-top: 2rem;
+text-transform: uppercase;
+font-weight: 600;
+transition: 0.3s ease-in-out;
+}
+        
+.reservation-form button:hover{
+transform: scale(1.05);
+color: rgb(252, 149, 59);
+background-color: white;
+}
+input {
+width: 100%;
+padding: 10px;
+margin: 0.5rem;
+outline: none;
+border: none;
+border-bottom: 2px solid white;
+background: transparent;
+color: white;
+}
+
+input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+
+input:focus{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+input:focus ~ .icon {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05) translateY(-45%) translateX(-15%);
+}
+    
+
 /*----------Food menu-----------*/
 .Food_back{
     background-image: url(Images/food_menu_background\ \(1\).png);
@@ -222,6 +323,43 @@ background-color: var(--text-color); /* Darker orange on hover */
     background-size: auto;
     background-attachment: fixed;
 }
+.grid-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease-in-out;
+}
+.grid-container span{
+    background-color: var(--text-color);
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.grid-item:hover img {
+    opacity: 0.6;
+}
+.menu-link {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.menu-link:hover .hover-text {
+    opacity: 1;
+}
+
 .menu-container {
     display: none;
 }
@@ -247,6 +385,12 @@ background-color: var(--text-color); /* Darker orange on hover */
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+}
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    
 }
 
 /*---------Food_items----------*/

@@ -127,3 +127,22 @@ function DisplayError(error) {
   });
   return;
 }
+/*---------------------------------Reservation page------------------------------*/
+document.getElementById("reservationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var datetime = document.getElementById("datetime").value;
+  var people = document.getElementById("people").value;
+
+  alert("Reservation Details:\nName: " + name + "\nEmail: " + email + "\nDate & Time: " + datetime + "\nNumber of People: " + people);
+
+  document.getElementById("reservationForm").reset();
+});
+
+
+var now = new Date();
+now.setHours(10); 
+var minDateTime = now.toISOString().slice(0, 16); 
+document.getElementById("datetime").setAttribute("min", minDateTime);
