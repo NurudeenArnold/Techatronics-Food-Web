@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <style>
+        /* ---------Global---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --text-color: rgb(252, 149, 59);
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background-image: url('Images/Background food (7).png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Light black background */
+            padding: 20px; /* Add padding for better spacing */
+            max-width: 800px; /* Set a maximum width for the container */
+            border-radius: 15px; /* Add border-radius for rounded corners */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Add a subtle shadow */
+            margin-top: 50px; /* Space between navbar and container */
+            transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+        }
+
+        .flex-container:hover {
+            transform: scale(1.05); /* Increase scale on hover */
+        }
+
+        /* Input Styles */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 0.5rem 0;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid white;
+            background: transparent;
+            color: white;
+            transition: border-bottom 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-bottom: 2px solid white;
+            transform: scale(1.05);
+        }
+
+        input:focus~.icon {
+            transform: scale(1.05) translateY(-45%) translateX(-15%);
+        }
+
+       /* Header Styles */
+.header {
+    width: 100%;
+    padding: 1rem 2%; /* Adjust padding for better spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 6;
+}
+
+.logo {
+    font-size: 2rem; /* Adjust logo size */
+    color:  rgb(252, 149, 59);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    font-size: 1rem; /* Adjust navbar link size */
+    color: white;
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--text-color);
+    border-bottom: 3px solid var(--text-color);
+}
+
+.top {
+    margin-top: 6rem; /* Adjust margin-top to create space below header */
+}
+/* Footer Styles */
+
+footer {
+            background: rgba(0, 0, 0, 0.8); /* Background color */
+            padding: 1rem 2%; /* Adjust padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        footer a {
+            color: white;
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text-color);
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar section -->
+    <header class="header">
+        <a href="#top" class="logo">TechFoods</a>
+        </a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="login.html">Order now</a>
+        </nav>
+    </header>
+<br>
+<br>
+<br>
+    <div class="flex-container">
+        <!-- Content sections -->
+        <section>
+            <h3 id="aboutus">About us</h3>
+            <div class="Chef_About">
+                <p class="aboutWeb">Welcome to TechFoods, your ultimate destination for culinary inspiration! At
+                    TechFoods,<br>
+                    we are passionate about all things food and are dedicated to providing you with delicious recipes,<br>
+                    helpful cooking tips, and insightful articles to enhance your culinary journey.<br>
+                    Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
+                    create memorable meals that nourish both body and soul. <br>
+                    With a diverse range of recipes spanning from comforting classics to innovative creations,<br>
+                    there's something for everyone here. Join us as we explore the world of gastronomy, two dishes at a
+                    time.
+                </p><br>
+            </div>
+        </section>
+
+        <!-- Why choose us section -->
+        <section>
+            <h3 class="ChooseUs">Why choose us?</h3>
+            <div class="cho_food">
+                <ul class="ChooseUs__point">
+                    <li class="ChooseUs__item">
+                        <p>We are fast and reliable</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Flavourful food</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Cater for everyone and their preferred style of food</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Best in the west</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!--footer section-->
+    <footer>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+
+</body>
+
+</html>
