@@ -482,6 +482,7 @@ footer{
     text-align: center;
     padding: 20px;
     margin-top: 1.5rem;
+    width: 100%;
 }
 footer a {
     border-radius: 0% !important;
