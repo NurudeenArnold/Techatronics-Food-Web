@@ -29,12 +29,6 @@
             display: flex;
             flex-direction: column;
         }
-        .content {
-            position: relative;
-            z-index: 1; 
-            padding: 20px;
-            color: white; 
-        }
         .Slogan {
             position: absolute;
             left: 40%;
@@ -74,6 +68,9 @@
             max-width: 400px; 
             animation: spin 30s linear infinite; 
         }
+        footer{
+            margin-top: auto;
+        }
         @keyframes spin {
             from {
                 transform: translateY(-50%) rotate(0deg); 
@@ -82,11 +79,6 @@
                 transform: translateY(-50%) rotate(360deg); 
             }
         }
-
-        footer{
-            margin-top: auto;
-        }
-       
         @media only screen and (max-width: 1500px) {
             img{
                 width: 300px;
@@ -108,10 +100,8 @@
     </style>
 </head>
 <body>
-
- <!-- Navbar section -->
- <section>
-    <header class = "header">
+     <!-- Navbar section -->
+     <header class = "header">
         <a href="index.html" class="logo">Tech
             <span>Foods</span>
         </a>
@@ -121,10 +111,9 @@
             <a href = "food.html">Food Menu</a>
             <a href = "contactus.html">Contact us</a>
             <a href = "book.html">Book a table</a>
-            <a href = "login.html">Order now</a>
-           
+            <a class="loginbtn" href = "login.html">Login</a>
         </nav>
-        </header>
+    </header>
 
 
 
@@ -136,11 +125,7 @@
 
 
 <img src="hero.png"> 
-
 <div id="overlay"></div> 
-
-</section>
-    </section>
     <!-- Footer section -->
     <footer>
         <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>

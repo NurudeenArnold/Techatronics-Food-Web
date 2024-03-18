@@ -119,7 +119,7 @@ input:focus ~ .icon {
     cursor: pointer;
     transition: 0.3s ease-in-out;
     text-decoration: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
 }
 .logo:hover{
     transform: scale(1.1);
@@ -140,6 +140,16 @@ input:focus ~ .icon {
     width: 100%;
 }
 
+.loginbtn{
+    border: 2px solid var(--text-color);
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    font-weight: 600 !important;
+}
+.loginbtn:hover{
+    background-color: var(--text-color) !important;
+    color: black !important;
+}
 /*-------------Home-----------*/
 .Slogan{
     color:var(--text-color);
@@ -589,6 +599,7 @@ footer a {
 @media only screen and (max-width: 1270px) {
     .navbar a{
         font-size: 1rem;
+        margin-left: 2rem;
     }
     .grid-container{
         grid-template-columns: repeat(2, 1fr);
@@ -597,6 +608,7 @@ footer a {
 @media only screen and (max-width: 1170px) {
     .navbar a{
         font-size: 1rem;
+        margin-left: 2rem;
     }
     .logo{
         font-size: 2rem;
@@ -605,6 +617,7 @@ footer a {
 @media only screen and (max-width: 1070px) {
     .navbar a{
         font-size: 0.8rem;
+        margin-left: 1rem;
     }
     .logo{
         font-size: 1.6rem;
