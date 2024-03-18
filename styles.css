@@ -22,6 +22,7 @@
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed;
+    
 }
 span {
     color: var(--text-color);
