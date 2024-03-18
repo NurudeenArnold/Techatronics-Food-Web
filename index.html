@@ -7,18 +7,16 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
-        /* Styling for the overlay */
         #overlay {
-            position: absolute; /* Position it relative to the body */
+            position: absolute; 
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black color */
-            pointer-events: none; /* Allows clicks to fall through to the underlying elements */
-            z-index: -1; /* Ensure the overlay is behind other content */
+            background-color: rgba(0, 0, 0, 0.9); 
+            pointer-events: none; 
+            z-index: -1;
         }
-        /* Styling for the background image */
         body {
             margin: 0;
             padding: 0;
@@ -26,17 +24,16 @@
             background-size: cover;
             background-position: center;
             min-height: 100vh;
-            position: relative; /* Ensure the body is positioned */
+            position: relative;
             text-align: left;
             display: flex;
             flex-direction: column;
         }
-        /* Styling for the content */
         .content {
             position: relative;
-            z-index: 1; /* Ensure the content is above the overlay */
+            z-index: 1; 
             padding: 20px;
-            color: white; /* Example content color */
+            color: white; 
         }
         .Slogan {
             position: absolute;
@@ -53,7 +50,7 @@
             font-size: 20px;
         }
         .Slogan a.order-now-button {
-            background-color: rgb(252, 149, 59); /* Orange button */
+            background-color: rgb(252, 149, 59); 
             color: black;
             padding: 12px 24px;
             text-decoration: none;
@@ -63,26 +60,26 @@
             cursor: pointer;
             font-size: 20px;
             font-weight: bold;
-            display: inline-block; /* Ensure button stays in line */
+            display: inline-block; 
 }
 
 .Slogan a.order-now-button:hover {
-    background-color: rgb(236, 124, 45); /* Darker orange on hover */
+    background-color: rgb(236, 124, 45); 
 }
         img {
             position: absolute;
             top: 50%;
             right: 250px;
-            transform: translateY(-50%) rotate(0deg); /* Initial rotation angle */
-            max-width: 400px; /* Adjust the max width as needed */
-            animation: spin 30s linear infinite; /* Animation properties */
+            transform: translateY(-50%) rotate(0deg); 
+            max-width: 400px; 
+            animation: spin 30s linear infinite; 
         }
         @keyframes spin {
             from {
-                transform: translateY(-50%) rotate(0deg); /* Start rotation angle */
+                transform: translateY(-50%) rotate(0deg); 
             }
             to {
-                transform: translateY(-50%) rotate(360deg); /* End rotation angle */
+                transform: translateY(-50%) rotate(360deg); 
             }
         }
 
@@ -134,7 +131,7 @@
 <p class="Slogan">Bytes of Flavor, Where <br> Tech Meets Taste.<br><span>Welcome to TechFoods, your ultimate destination for culinary inspiration!</span><br><a href="food.html" class="order-now-button">Order Now</a></p>
     <br>
     <br>
-    <a href="food.html" button>Order Now</a>
+    <a href="food.html">Order Now</a>
 </p>
 
 
