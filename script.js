@@ -1,4 +1,4 @@
-/*-----------------------------------------Database-----------------------------------------*/
+/*-----------------------------------------Database Connection-----------------------------------------*/
 const firebaseConfig = {
   apiKey: "AIzaSyB3W7viPxk2IRD8zkhk_DG9vRgA2bUia9s",
   authDomain: "techfoods-68990.firebaseapp.com",
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //Assign user input to vairables
       name = document.getElementById("name").value;
       surname = document.getElementById("surname").value;
-      email = document.getElementById("email").value;
+      email = document.getElementById("email").value.trim();
       contact = document.getElementById("contact").value.trim(); //trim gets rid of any extra spaces in the textbox.
       password = document.getElementById("password").value;
 
@@ -42,18 +42,21 @@ document.addEventListener("DOMContentLoaded", function () {
           //Adding data to Realtime Database
           var user = auth.currentUser;
           var database_ref = database.ref();
+          var currentDate = new Date();
+          var formattedDate = currentDate.toLocaleString();
+
           var user_data = {
             name: name,
             surname: surname,
             email: email,
             contact: contact,
-            last_login: Date.now(),
+            last_login: formattedDate,
           };
           database_ref.child("users/" + user.uid).set(user_data); //Add user data under node "users/" in Realtime Database
 
           Swal.fire({
             //Alert Success Registration
-            title: "Thank you for signing up for Tech<span> Foods</span>!",
+            title: "Thank you for signing up for Tech Foods!",
             text: "Your interest in joining our community is appreciated!",
             color: "#ffffff",
             icon: "success",
@@ -69,11 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(DisplayError); //display any error that might occur when registering (password, email, etc)
 
+        document.getElementById("name").value = "";
+        document.getElementById("surname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("contact").value = "";
+        document.getElementById("password").value = "";
+
     } /*-----------------------------------------Login Button-----------------------------------------*/
     // Check if the submitted form is the login form
     if (event.target.id === "loginForm") {
       //Assign user input to vairables
-      email = document.getElementById("email").value;
+      email = document.getElementById("email").value.trim();
       password = document.getElementById("password").value;
 
       auth.signInWithEmailAndPassword(email, password) //Authentication on Firebase
@@ -81,8 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
           //Adding data to Realtime Database
           var user = auth.currentUser;
           var database_ref = database.ref();
+          var currentDate = new Date();
+          var formattedDate = currentDate.toLocaleString();
+
           var user_data = {
-            last_login: Date.now(),
+            last_login: formattedDate,
           };
           database_ref.child("users/" + user.uid).update(user_data); //Add user data under node "users/" in Realtime Database
 
@@ -94,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
             confirmButtonColor: "var(--text-color)",
             iconColor: "var(--text-color)",
             confirmButtonText: "Okay",
+            allowOutsideClick: false,
           }).then((result) => {
             //Once the window is closed, redirect user to login.html
             if (result.isConfirmed) {
@@ -109,11 +122,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function DisplayError(error) {
   //Display Error Method
   var errorMessage = error.message; //assigning error message to var
-  if (
-    errorMessage ==
-    '{"error":{"code":400,"message":"INVALID_LOGIN_CREDENTIALS","errors":[{"message":"INVALID_LOGIN_CREDENTIALS","domain":"global","reason":"invalid"}]}}'
-  ) {
-    errorMessage = "Invalid Email or Password.";
+  if (errorMessage == '{"error":{"code":400,"message":"INVALID_LOGIN_CREDENTIALS","errors":[{"message":"INVALID_LOGIN_CREDENTIALS","domain":"global","reason":"invalid"}]}}') 
+  {
+    errorMessage = "Invalid Email or Password."; //more readable error message for user
   }
   Swal.fire({
     //Alert box Error
