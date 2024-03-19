@@ -18,10 +18,19 @@
     color: var(--text2-color);
 }
 .BackgroundIMG{
-    background-image: url(Images/food_background\ \(1\).png);
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url('Images/Background food (7).png');
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 span {
     color: var(--text-color);
