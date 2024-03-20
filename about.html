@@ -10,70 +10,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <style>
-        /* ---------Global---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --text-color: rgb(252, 149, 59);
-        }
-       
-        h3#aboutus {
-         text-align: center;
-         font-family:Georgia, 'Times New Roman', Times, serif
-        }
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100%;
-            background-image: url('Images/Background food (7).png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        .flex-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5); 
-            padding: 20px; 
-            max-width: 800px; 
-            border-radius: 15px; 
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
-            margin-top: 50px; 
-            transition: transform 0.3s ease-in-out; 
-        }
-
-        .flex-container:hover {
-            transform: scale(1.05); 
-        }
-        .aboutWeb {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        .ChooseUs {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        .ChooseUs__point {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-        p{
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-    </style>
 </head>
 
 <body>
@@ -99,14 +35,14 @@
         <section>
             <h3 id="aboutus">About us</h3>
             <div class="Chef_About">
-                <p class="aboutWeb">Welcome to TechFoods, your ultimate destination for culinary inspiration! At
-                    TechFoods,<br>
+                <p class="aboutWeb">Welcome to <span>TechFoods</span>, your ultimate destination for culinary inspiration!<br><br>At
+                    TechFoods,
                     we are passionate about all things food and are dedicated to providing you with delicious recipes,<br>
-                    helpful cooking tips, and insightful articles to enhance your culinary journey.<br>
+                    helpful cooking tips, and insightful articles to enhance your culinary journey.<br><br>
                     Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
                     create memorable meals that nourish both body and soul. <br>
                     With a diverse range of recipes spanning from comforting classics to innovative creations,<br>
-                    there's something for everyone here. Join us as we explore the world of gastronomy, two dishes at a
+                    there's something for everyone here. <br><br>Join us as we explore the world of gastronomy, two dishes at a
                     time.
                 </p><br>
             </div>
@@ -129,11 +65,9 @@
                     <li class="ChooseUs__item">
                         <p>Best in the west</p>
                     </li>
-                </ul>
-                
+                </ul> 
             </div>
         </section>
-        
         <section>
             <div class = "contact">
             <h3>We are <span>working</span> from:</h3>
@@ -143,6 +77,65 @@
             <p><strong>10:00AM to 8:00PM</strong></p>
             </div>
         </section>
+        	<!-- team section -->
+            <section>
+	<div class="mt-150">
+		<div class="container">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Our <span class="orange-text">Team</span></h3>
+						<p>In our restaurant, meet our dedicated team of skilled chefs,
+                             each passionate about crafting culinary delights that tantalize the taste buds.
+                             Explore our website to see their faces and
+                              learn more about the talented individuals behind the exquisite dishes we serve.</p>
+					</div>
+				</div>
+			
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-1"></div><br>
+					</div>
+                    <h4>Sihle Mtshini <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-3"></div><br>
+					</div>
+                    <h4>Nurudeen Arnold <span>Chef</span></h4><br>
+                </div>
+				</div>
+                <div class="row">
+                <div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-3"></div><br>
+					</div>
+                    <h4>Saurav Sewparsad <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-3"></div><br>
+					</div>
+                    <h4>Khanya Somagaca <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+              
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-2"></div><br>
+					</div>
+                    <h4>Mbasa Mpohlolo <span>Chef</span></h4><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!-- end team section -->
     </div>
     <!--footer section-->
     <footer>
