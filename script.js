@@ -12,10 +12,26 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-document.querySelector(".loginbtn").textContent = localStorage.getItem("userID") || "Login";
 
+// Event listener for the parent element containing both forms
 document.addEventListener("DOMContentLoaded", function () {
-  // Event listener for the parent element containing both forms
+
+  let loginButton = document.querySelector(".loginbtn");
+  let loginText = localStorage.getItem("userName") || "Login";
+  loginButton.textContent = loginText.trim();
+
+  if (loginText.length > 8) {
+    loginText = loginText.substring(0, 8) + "...";
+  }
+  loginButton.textContent = loginText;
+  
+  if (loginText !== "Login") {
+    loginButton.href = "userProfile.html";
+    console.log(loginButton.href);
+  } else {
+    console.log(loginText);
+  }
+
   document.body.addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -93,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
             last_login: formattedDate,
           };
           database_ref.child("users/" + user.uid).update(user_data); //update user data under node "users/" in Realtime Database
-
+          
           Swal.fire({
             //Alert Success Registration
             title: "Thank you for logging in!",
@@ -104,10 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
             confirmButtonText: "Okay",
             allowOutsideClick: false,
           }).then((result) => {
-            //Once the window is closed, redirect user to index.html
-            if (result.isConfirmed) {
-              localStorage.setItem("userID", user.uid)
-              window.location.href = "index.html";
+            if (result.isConfirmed) {//Once the window is confirmed ("okay" was clicked), run this code
+                const userNameRef = database_ref.child("users/" + user.uid + "/name"); //database ref
+                userNameRef.on('value', (snapshot) => {
+                  const userName = snapshot.val(); 
+                  localStorage.setItem("userName", userName) //local storage for name
+                  window.location.href = "index.html"; //redirect user to home page
+                }, (error) => {
+                  console.error("Error retrieving user's name:", error);
+                });
             }
           });
         })
