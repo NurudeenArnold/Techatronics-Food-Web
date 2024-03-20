@@ -554,10 +554,26 @@ input:focus ~ .icon {
     justify-content: center;
     text-shadow: black 1px -1px;
 }
+.contact{
+    min-height: 10vh;
+    text-align: center;
+    justify-content: center;
+    text-shadow: black 1px -1px;
+}
 .contactus h3 {
     color: var(--text2-color);
     padding: 3rem;
     font-size: 3rem;
+}
+.contact h3{
+    color: var(--text2-color);
+    padding: 2rem;
+    font-size: 3rem;  
+}
+.contact p{
+    font-size: 1.5rem;
+    color: var(--text2-color);
+    padding: 1rem;
 }
 .contactus p {
     font-size: 1.5rem;
@@ -567,10 +583,21 @@ input:focus ~ .icon {
 .contactus p a{
     color: var(--text2-color);
 }
+.contact p a{
+    color: var(--text2-color);
+}
 .contactus span{
     color: var(--text-color);
 }
+.contact span{
+    color: var(--text-color);
+}
 .contactus iframe {
+    -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+    box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+}
+.contact iframe {
     -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
