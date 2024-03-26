@@ -217,21 +217,13 @@ background-color: var(--text-color); /* Darker orange on hover */
     margin-top: 20px;
 }
 
-.ChooseUs__point{
-    color: var(--text2-color);
-    margin-top: 20px;
-    margin-left: 30px;
-    font-size: 24px;
-}
 
 .Food_home{
     float: right;
     margin-left: 120px;
 }
-.cho_food{
-    display: inline-flex;
-    justify-content: space-around;
-    padding: 10px;
+.cho_food li{
+    list-style-type: none;
 }
 
 /*----------Reservation page------*/
