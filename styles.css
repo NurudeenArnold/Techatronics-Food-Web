@@ -150,6 +150,7 @@ input:focus ~ .icon {
 
 .loginbtn{
     border: 2px solid var(--text-color);
+    width: fit-content;
     border-radius: 1rem;
     padding: 0.5rem 2rem;
     font-weight: 600 !important;
@@ -630,7 +631,7 @@ footer a {
     width: 50px;
 }
 /*---------Responsiveness----------*/
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1360px) {
     .navbar a{
         font-size: 1.2rem;
         margin-left: 2rem;
@@ -659,7 +660,7 @@ footer a {
 }
 @media only screen and (max-width: 1070px) {
     .navbar a{
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin-left: 1rem;
     }
     .logo{
@@ -671,32 +672,61 @@ footer a {
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
-
-  
- 
-  @media only screen and (max-width: 767.96px) {
+@media only screen and (max-width: 767.96px) {
     .mt-150 {
       margin-top: 100px;
     }
-  }
-  
-  .mb-150 {
+}
+.mb-150 {
     margin-bottom: 150px;
-  }
-  
-  @media only screen and (max-width: 767.96px) {
+}
+@media only screen and (max-width: 767.96px) {
     .mb-150 {
       margin-bottom: 100px;
     }
-  }
+}
+#menu-icon{
+    display: none;
+}
+@media only screen and (max-width: 950px) {
+      #menu-icon{
+          display: block;
+          font-size: 2rem;
+      }
+      .navbar{
+          position: fixed;
+          top: 100%;
+          right: 0;
+          width: 50%;
+          padding: 1rem 3%;
+          background: rgba(0, 0, 0, 0.9);
+          backdrop-filter: blur(20px);
+          border-bottom-left-radius: 2rem;
+          border-left: 2px solid var(--text-color);
+          border-bottom: 2px solid var(--text-color);
+          display: none;
+      }
+      .navbar.active {
+          display: block;
+      }
+      .navbar a:hover,
+      .navbar a.active{
+      color: var(--main-color);
+      border-bottom: none;
+      }
+      .navbar a{
+          display: block;
+          font-size: 2rem;
+          margin: 3rem 0;
+          color: white;
+      }
+}
   
   
   /*------------------About page and Team------------------*/
     * {
         margin: 0;
         padding: 0;
-        font-family: Georgia, 'Times New Roman', Times, serif;
         box-sizing: border-box;
         scroll-behavior: smooth;
     }
@@ -723,7 +753,6 @@ footer a {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
     }
   .row{
 margin: 15px;
@@ -783,22 +812,6 @@ border-radius: 8px;
         margin-top: 60px; 
         transition: transform 0.3s ease-in-out; 
     }
-
- 
-    .aboutWeb {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .ChooseUs {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .ChooseUs__point {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    p{
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-  
   .team-bg-1 {
     background-image: url(Images/team-1.jpg);
   }
