@@ -593,6 +593,7 @@ input:focus ~ .icon {
     color: var(--text-color);
 }
 .contactus iframe {
+    width: calc(100vw/1.5);
     -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
     box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
@@ -689,6 +690,9 @@ footer a {
     display: none;
 }
 @media only screen and (max-width: 950px) {
+    html{
+        font-size: 85%;
+    }
       #menu-icon{
           display: block;
           font-size: 2rem;
@@ -721,8 +725,6 @@ footer a {
           color: white;
       }
 }
-  
-  
   /*------------------About page and Team------------------*/
     * {
         margin: 0;
@@ -806,7 +808,7 @@ border-radius: 8px;
         justify-content: center;
         background-color: rgba(0, 0, 0, 0.5); 
         padding: 20px; 
-        max-width: 800px; 
+        max-width: 90%; 
         border-radius: 15px; 
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
         margin-top: 60px; 
@@ -830,7 +832,7 @@ border-radius: 8px;
   
   .team-bg {
     height: 200px;
-    width: 200px;
+    width: 100%;
     background-size: cover;
     background-position: center;
     border-radius: 5px;
