@@ -12,8 +12,24 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-document.addEventListener("DOMContentLoaded", function () {
   // Event listener for the parent element containing both forms
+document.addEventListener("DOMContentLoaded", function () {
+  let loginButton = document.querySelector(".loginbtn");
+  let loginText = localStorage.getItem("userName") || "Login";
+  loginButton.textContent = loginText.trim();
+
+  if (loginText.length > 8) {
+    loginText = loginText.substring(0, 8) + "...";
+  }
+  loginButton.textContent = loginText;
+
+  if (loginText !== "Login") {
+    loginButton.href = "userProfile.html";
+    console.log(loginButton.href);
+  } else {
+    console.log(loginText);
+  }
+
   document.body.addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
@@ -96,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
           var user_data = {
             last_login: formattedDate,
           };
-          database_ref.child("users/" + user.uid).update(user_data); //Add user data under node "users/" in Realtime Database
+          database_ref.child("users/" + user.uid).update(user_data); //update user data under node "users/" in Realtime Database
 
           Swal.fire({
             //Alert Success Registration
@@ -108,13 +124,38 @@ document.addEventListener("DOMContentLoaded", function () {
             confirmButtonText: "Okay",
             allowOutsideClick: false,
           }).then((result) => {
-            //Once the window is closed, redirect user to login.html
-            if (result.isConfirmed) {
-              window.location.href = "index.html";
+            if (result.isConfirmed) {//Once the window is confirmed ("okay" was clicked), run this code
+              const userNameRef = database_ref.child("users/" + user.uid + "/name"); //database ref
+              userNameRef.on('value', (snapshot) => {
+                const userName = snapshot.val(); 
+                localStorage.setItem("userName", userName) //local storage for name
+                window.location.href = "index.html"; //redirect user to home page
+              }, (error) => {
+                console.error("Error retrieving user's name:", error);
+              });
             }
           });
         })
         .catch(DisplayError); //display any error that might occur when registering (password, email, etc)
+    }
+    /*---------------------------------Reservation page------------------------------*/
+    if (event.target.id === "reservationForm") {
+      document.getElementById("reservationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var datetime = document.getElementById("datetime").value;
+        var people = document.getElementById("people").value;
+
+        alert("Reservation Details:\nName: " + name + "\nEmail: " + email + "\nDate & Time: " + datetime + "\nNumber of People: " + people);
+
+        document.getElementById("reservationForm").reset();
+      });
+      var now = new Date();
+      now.setHours(10); 
+      var minDateTime = now.toISOString().slice(0, 16); 
+      document.getElementById("datetime").setAttribute("min", minDateTime);
     }
   });
 });
@@ -138,22 +179,28 @@ function DisplayError(error) {
   });
   return;
 }
-/*---------------------------------Reservation page------------------------------*/
-document.getElementById("reservationForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+/*-----------------------------------------Responsive Navbar-----------------------------------------*/
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
 
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var datetime = document.getElementById("datetime").value;
-  var people = document.getElementById("people").value;
+window.onscroll = () => {
+    let top = window.scrollY;
+    sections.forEach(sec => {
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+        if(top >= offset && top < offset + height){
+            navLinks.forEach (link => {
+                link.classList.remove('active');
+            });
+            document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+        }
+    });
+};
 
-  alert("Reservation Details:\nName: " + name + "\nEmail: " + email + "\nDate & Time: " + datetime + "\nNumber of People: " + people);
-
-  document.getElementById("reservationForm").reset();
-});
-
-
-var now = new Date();
-now.setHours(10); 
-var minDateTime = now.toISOString().slice(0, 16); 
-document.getElementById("datetime").setAttribute("min", minDateTime);
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
