@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
@@ -13,25 +13,26 @@
 </head>
 <body class="Food_back">
     <!-- Navbar section -->
-    <header class = "header">
+    <header class="header">
         <a href="index.html" class="logo">Tech
             <span>Foods</span>
         </a>
 
-        <i class = "bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-menu" id="menu-icon"></i>
 
-        <nav class = "navbar">
-            <a href = "index.html">Home</a>
-            <a href = "about.html">About</a>
-            <a href = "food.html">Food Menu</a>
-            <a href = "contactus.html">Contact us</a>
-            <a href = "book.html">Book a table</a>
-            <a class="loginbtn" href = "login.html">Login</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count" class="cart-count"></span></a>
+            <a class="loginbtn" href="login.html">Login</a>
         </nav>
     </header>
 
-    <!--Meals for Pizza-->
-    <section class = top> 
+    <!-- Meals for Pizza -->
+    <section class="top">
         <h3 class="Food_type_name">Pizza Meals</h3>
         <div class="Food_container">
             <div class="Food_box">
@@ -49,7 +50,7 @@
                         <input type="radio" id="chicken_large" name="chicken_size" value="large">
                         <label for="chicken_large">Large</label>
                     </div>
-                    <a href="login.html">Add</a>
+                    <button onclick="addItemToCart('Chicken Pizza', 25)">Add to Cart</button>
                 </div>
             </div>
             
@@ -68,7 +69,7 @@
                         <input type="radio" id="hawaiian_large" name="hawaiian_size" value="large">
                         <label for="hawaiian_large">Large</label>
                     </div>
-                    <a href="login.html">Add</a>
+                    <button onclick="addItemToCart('Hawaiian Pizza', 30)">Add to Cart</button>
                 </div>
             </div>
             
@@ -87,7 +88,7 @@
                         <input type="radio" id="margarita_large" name="margarita_size" value="large">
                         <label for="margarita_large">Large</label>
                     </div>
-                    <a href="login.html">Add</a>
+                    <button onclick="addItemToCart('Margarita Pizza', 20)">Add to Cart</button>
                 </div>
             </div>
             
@@ -106,7 +107,7 @@
                         <input type="radio" id="pepperoni_large" name="pepperoni_size" value="large">
                         <label for="pepperoni_large">Large</label>
                     </div>
-                    <a href="login.html">Add</a>
+                    <button onclick="addItemToCart('Pepperoni Pizza', 40)">Add to Cart</button>
                 </div>
             </div>
             <div class="Food_box">
@@ -124,17 +125,56 @@
                         <input type="radio" id="sweet_chili_large" name="sweet_chili_size" value="large">
                         <label for="sweet_chili_large">Large</label>
                     </div>
-                    <a href="login.html">Add</a>
+                    <button onclick="addItemToCart('Sweet Chili chicken Pizza', 95)">Add to Cart</button>
                 </div>
             </div>
-        </div>
     </section>
     <!-- Footer section -->
     <footer>
-        <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
-        <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function addItemToCart(name, price) {
+            // Get existing cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Check if the item is already in the cart
+            const existingItemIndex = cartItems.findIndex(item => item.name === name);
+            if (existingItemIndex !== -1) {
+                // If the item is already in the cart, increment its quantity
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                // If the item is not in the cart, add it with quantity 1
+                cartItems.push({ name, price, quantity: 1 });
+            }
+
+            // Save updated cart items to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update cart count
+            updateCartCount(countTotalItems(cartItems));
+        }
+
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        }
+
+        function countTotalItems(cartItems) {
+            return cartItems.reduce((total, item) => total + item.quantity, 0);
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            updateCartCount(countTotalItems(cartItems));
+        };
+    </script>
 </body>
 </html>

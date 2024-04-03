@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <title>Food Website</title>
     <style>
-                h3{
+        h3 {
             background-color: black;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -21,75 +21,115 @@
     </style>
 </head>
 <body class="Food_back">
-     <!-- Navbar section -->
-     <header class = "header">
-        <a href="index.html" class="logo">Tech
-            <span>Foods</span>
-        </a>
+<header class="header">
+    <a href="index.html" class="logo">Tech
+        <span>Foods</span>
+    </a>
 
-        <i class = "bx bx-menu" id="menu-icon"></i>
+    <i class="bx bx-menu" id="menu-icon"></i>
 
-        <nav class = "navbar">
-            <a href = "index.html">Home</a>
-            <a href = "about.html">About</a>
-            <a href = "food.html">Food Menu</a>
-            <a href = "contactus.html">Contact us</a>
-            <a href = "book.html">Book a table</a>
-            <a class="loginbtn" href = "login.html">Login</a>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="food.html">Food Menu</a>
+        <a href="contactus.html">Contact us</a>
+        <a href="book.html">Book a table</a>
+        <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+        <a class="loginbtn" href="login.html">Login</a>
+    </nav>
+</header>
 
-    <!--Meals for curry-->
-    <section class = top>
-        <h3 class="Food_type_name">Braai Meat</h3>
-        <div class="Food_container">
-            <div class="Food_box">
-                <div class="Food_info">
-                    <p class="name">Boerewors</p>
-                    <img src="food menu img/meat_img/boerewors.jpg" alt="Boerewors" width="250" height="250">
-                    <p class="price">R125</p>
-                    <a href="login.html">Add</a>
-                </div>
+<section class=top>
+    <h3 class="Food_type_name">Braai Meat</h3>
+    <div class="Food_container">
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Boerewors</p>
+                <img src="food menu img/meat_img/boerewors.jpg" alt="Boerewors" width="250" height="250">
+                <p class="price">R125</p>
+                <button onclick="addItemToCart('Boerewors', 125)">Add to Cart</button>
             </div>
-            <div class="Food_box">
-                <div class="Food_info">
-                    <p class="name">Pork Chops</p>
-                    <img src="food menu img/meat_img/chops.jpg" alt="Pork Chops" width="250" height="250">
-                    <p class="price">R100</p>
-                    <a href="login.html">Add</a>
-                </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Pork Chops</p>
+                <img src="food menu img/meat_img/chops.jpg" alt="Pork Chops" width="250" height="250">
+                <p class="price">R100</p>
+                <button onclick="addItemToCart('Pork Chops', 100)">Add to Cart</button>
             </div>
-            <div class="Food_box">
-                <div class="Food_info">
-                    <p class="name">Braai platter</p>
-                    <img src="food menu img/meat_img/platter.jpg" alt="Braai platter" width="250" height="250">
-                    <p class="price">R250</p>
-                    <a href="login.html">Add</a>
-                </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Braai platter</p>
+                <img src="food menu img/meat_img/platter.jpg" alt="Braai platter" width="250" height="250">
+                <p class="price">R250</p>
+                <button onclick="addItemToCart('Braai platter', 250)">Add to Cart</button>
             </div>
-            <div class="Food_box">
-                <div class="Food_info">
-                    <p class="name">Quarter leg</p>
-                    <img src="food menu img/meat_img/ql.jpg" alt="Quarter leg" width="250" height="250">
-                    <p class="price">R90</p>
-                    <a href="login.html">Add</a>
-                </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Quarter leg</p>
+                <img src="food menu img/meat_img/ql.jpg" alt="Quarter leg" width="250" height="250">
+                <p class="price">R90</p>
+                <button onclick="addItemToCart('Quarter leg', 90)">Add to Cart</button>
             </div>
-            <div class="Food_box">
-                <div class="Food_info">
-                    <p class="name">Pork strips</p>
-                    <img src="food menu img/meat_img/strips.jpg" alt="Pork strips" width="250" height="250">
-                    <p class="price">R100</p>
-                    <a href="login.html">Add</a>
-                </div>
-            </div>            
-    </section>
-    <!-- Footer section -->
-    <footer>
-        <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
-        <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
-        <p>Contact us at: Techatronics@TechFoods.com</p>
-    </footer>
-    <script src="script.js"></script>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Pork strips</p>
+                <img src="food menu img/meat_img/strips.jpg" alt="Pork strips" width="250" height="250">
+                <p class="price">R100</p>
+                <button onclick="addItemToCart('Pork strips', 100)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer section -->
+<footer>
+    <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    <p>Contact us at: Techatronics@TechFoods.com</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="script.js"></script>
+<script>
+    function addItemToCart(name, price) {
+        // Get existing cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Check if the item is already in the cart
+        const existingItemIndex = cartItems.findIndex(item => item.name === name);
+        if (existingItemIndex !== -1) {
+            // If the item is already in the cart, increment its quantity
+            cartItems[existingItemIndex].quantity += 1;
+        } else {
+            // If the item is not in the cart, add it with quantity 1
+            cartItems.push({ name, price, quantity: 1 });
+        }
+
+        // Save updated cart items to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Update cart count
+        updateCartCount(countTotalItems(cartItems));
+    }
+
+    function updateCartCount(count) {
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = count;
+        }
+    }
+
+    function countTotalItems(cartItems) {
+        return cartItems.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    // Update cart count on page load
+    window.onload = function () {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        updateCartCount(countTotalItems(cartItems));
+    };
+</script>
 </body>
 </html>

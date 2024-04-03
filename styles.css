@@ -838,3 +838,90 @@ border-radius: 8px;
     border-radius: 5px;
     background-color: #ddd;
   }
+  .cart-container {
+    max-width: 1000px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.cart-item {
+    border: 1px solid #ddd;
+    margin-bottom: 20px; /* Add margin between each cart item */
+    padding: 10px; /* Add padding to separate content from border */
+
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    
+}
+
+.cart-item .item-info {
+    flex-grow: 1;
+}
+
+.cart-item button {
+    background-color: rgb(252, 149, 59);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: rgb(252, 149, 59);
+}
+/* Add styles for the "Add to Cart" button */
+.Food_info button {
+    background-color: rgb(252, 149, 59); 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.Food_info button:hover {
+    background-color: rgb(252, 120, 59); 
+}
+
+/* Additional styling for better alignment */
+.Food_info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Additional styling for better alignment */
+.cart-item table {
+    width: 100%;
+}
+
+.cart-item table th,
+.cart-item table td {
+    padding: 10px;
+    text-align: left;
+
+}
+.clear-cart-button {
+    background-color: rgb(252, 149, 59);
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increased padding for better clickability */
+    cursor: pointer;
+    margin-top: 20px; /* Added margin-top to move the button down */
+    display: inline-block; /* Ensures it doesn't occupy full width */
+    border-radius: 5px;
+    text-decoration: none; /* Remove default underline for links */
+    text-align: center; /* Center text */
+}

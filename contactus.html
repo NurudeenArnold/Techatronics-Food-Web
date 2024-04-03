@@ -28,6 +28,7 @@
             <a href = "food.html">Food Menu</a>
             <a href = "contactus.html">Contact us</a>
             <a href = "book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
             <a class="loginbtn" href = "login.html">Login</a>
         </nav>
     </header>
@@ -61,6 +62,22 @@
         <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+    
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
+        }
+    </script>
+    
 </body>
-</html>
+</html> 

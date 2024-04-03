@@ -6,11 +6,12 @@
     <title>Food Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <style>
+        /* Your existing CSS styles */
         #overlay {
             position: absolute; 
             top: 0;
@@ -104,41 +105,54 @@
     </style>
 </head>
 <body>
-     <!-- Navbar section -->
-     <header class = "header">
+    <!-- Navbar section -->
+    <header class="header">
         <a href="index.html" class="logo">Tech
             <span>Foods</span>
         </a>
 
-        <i class = "bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-menu" id="menu-icon"></i>
 
-        <nav class = "navbar">
-            <a href = "index.html">Home</a>
-            <a href = "about.html">About</a>
-            <a href = "food.html">Food Menu</a>
-            <a href = "contactus.html">Contact us</a>
-            <a href = "book.html">Book a table</a>
-            <a class="loginbtn" href = "login.html">Login</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
         </nav>
     </header>
 
-
-
-<p class="Slogan">Bites of Flavor, Where <br> Tech Meets Taste.<br><span>Welcome to TechFoods, your ultimate destination for culinary inspiration!</span><br><a href="food.html" class="order-now-button">Order Now</a></p>
+    <!-- Your existing content -->
+    <p class="Slogan">Bites of Flavor, Where <br> Tech Meets Taste.<br><span>Welcome to TechFoods, your ultimate destination for culinary inspiration!</span><br><a href="food.html" class="order-now-button">Order Now</a></p>
     <br>
     <br>
     <a href="food.html">Order Now</a>
-</p>
-
-
-<img src="Images/hero.png"> 
-<div id="overlay"></div> 
+    <img src="Images/hero.png">
+    <div id="overlay"></div>
     <!-- Footer section -->
     <footer>
-        <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
-        <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
         <p>Contact us at: Techatronics@TechFoods.com</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+    
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
+        }
+    </script>
+    
 </body>
 </html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cart</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        .checkout-button, .clear-cart-button {
+            background-color: rgb(252, 149, 59);
+            color: white;
+            border: none;
+            padding: 10px 20px; /* Increased padding for better clickability */
+            cursor: pointer;
+            margin-top: 20px; /* Added margin-top to move the button down */
+            display: inline-block; /* Ensures it doesn't occupy full width */
+            border-radius: 5px;
+            text-decoration: none; /* Remove default underline for links */
+            text-align: center; /* Center text */
+        }
+
+        .clear-cart-button:hover {
+            background-color: #f28c42; /* Darker background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count"></span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <div class="cart-container">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <button onclick="clearCart()" class="checkout-button clear-cart-button">Clear Cart</button>
+        <a href="payment.html" class="checkout-button">Checkout</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function displayCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = "<p>No items in the cart</p>";
+                return;
+            }
+
+            cartItemsContainer.innerHTML = "";
+            let totalAmount = 0; // Variable to store the total amount
+
+            const groupedItems = groupItems(cartItems);
+            groupedItems.forEach(item => {
+                const itemTotal = item.price * item.quantity; // Calculate item total
+                totalAmount += itemTotal; // Add item total to the overall total
+
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th> <!-- Added new column -->
+                                <th>Actions</th>
+                            </tr>
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>R${item.price}</td>
+                                <td><input type="number" class="quantity-input" value="${item.quantity || 1}" min="1" data-item-name="${item.name}"></td>
+                                <td class="item-total">R${itemTotal}</td> <!-- Display item total -->
+                                <td>
+                                    <button onclick="updateQuantity('${item.name}', this.parentNode.querySelector('.quantity-input').value)">Update</button>
+                                    <button onclick="removeItem('${item.name}')">Remove</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                `;
+            });
+
+            // Add total amount to the cart
+            cartItemsContainer.innerHTML += `<p>Total: R<span id="totalAmount">${totalAmount}</span></p>`;
+
+            // Add event listeners to quantity input fields
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', (event) => {
+                    const itemName = event.target.dataset.itemName;
+                    const newQuantity = parseInt(event.target.value);
+                    updateItemTotal(itemName, newQuantity);
+                });
+            });
+        }
+
+        function groupItems(cartItems) {
+            const groupedItems = [];
+            cartItems.forEach(item => {
+                const existingItem = groupedItems.find(i => i.name === item.name);
+                if (existingItem) {
+                    existingItem.quantity += item.quantity || 1;
+                } else {
+                    groupedItems.push({ ...item });
+                }
+            });
+            return groupedItems;
+        }
+
+        function updateQuantity(name, quantity) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.forEach(item => {
+                if (item.name === name) {
+                    item.quantity = parseInt(quantity);
+                    // Update the total for the item
+                    item.total = item.price * item.quantity;
+                }
+            });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCart();
+            updateCartCount(countTotalItems(cartItems)); // Update cart count
+        }
+
+        function removeItem(name) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCart();
+            updateCartCount(countTotalItems(cartItems)); // Update cart count
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cartItems');
+            displayCart();
+            updateCartCount(0); // Update cart count
+        }
+
+        function countTotalItems(cartItems) {
+            return cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+        }
+
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+
+        window.onload = function () {
+            displayCart();
+            const cartItemsCount = JSON.parse(localStorage.getItem('cartItems')) ? countTotalItems(JSON.parse(localStorage.getItem('cartItems'))) : 0;
+            updateCartCount(cartItemsCount); // Update cart count
+        }
+    </script>
+</body>
+</html>
