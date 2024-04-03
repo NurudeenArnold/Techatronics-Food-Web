@@ -6,106 +6,12 @@
     <title>payment-food Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-        #overlay {
-            position: absolute; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); 
-            pointer-events: none; 
-            z-index: -1;
-        }
-
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100%;
-            background-image: url('Images/Background food (7).png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-             /*---------Navigation & Logo----------*/
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 9%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-.navbar a{
-    font-size: 1.2rem;
-    color: white;
-    margin-left: 3rem;
-    font-weight: 500;
-    transition: 0.3s ease-in-out;
-    text-decoration: none;
-}
-.navbar a:hover,
-.navbar a.active{
-    color: var(--text-color);
-    border-bottom: 3px solid var(--text-color);
-}
-.logo{
-    font-size: 3rem;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    text-decoration: none;
-}
-.logo:hover{
-    transform: scale(1.1);
-}
-.logo span{
-    color: var(--text-color);
-}
-.top{
-    min-height: 100vh;
-    padding: 10rem 5% 5rem;
-    margin-top: 3rem;
-}
-.navbar__btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    width: 100%;
-}
-
-.loginbtn{
-    border: 2px solid var(--text-color);
-    border-radius: 1rem;
-    padding: 0.5rem 2rem;
-    font-weight: 600 !important;
-}
-.loginbtn:hover{
-    background-color: var(--text-color) !important;
-    color: black !important;
-}
-
-
-        
+    
         .container {
             position: relative;
             display: flex;
@@ -118,6 +24,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
             margin-top: 150px; 
             transition: transform 0.3s ease-in-out;  
+    
           
         }
 
@@ -137,6 +44,7 @@
             padding: 0 50px; 
             z-index: 2; 
             margin-left: 300px; /* Adjust space between image and form */
+            font-family: Arial, Helvetica, sans-serif;
         }
         
         h2 {
@@ -154,6 +62,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing:content-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         input[type="submit"] {
@@ -227,6 +136,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -273,23 +183,27 @@
             <div class="order-summary">
                 <!-- Input field for selected items-->
                 <div class="seleted items">
-                    <label for="selected items">slected items</label>
+                    <label for="selected items">selected items</label>
                     <input type="text" id="selected items" name="selected items">
+                    <span id="selectedItemsCount"></span>
                 </div>
                 <!-- Input field for subtotal -->
                 <div class="inputbox">
                     <label for="subtotal">Subtotal</label>
                     <input type="text" id="subtotal" name="subtotal">
+                    <span id="subtotalCount"></span>
                 </div>
                 <!-- Input field for delivery fee -->
                 <div class="inputbox">
                     <label for="deliveryFee">Delivery Fee</label>
                     <input type="text" id="deliveryFee" name="deliveryFee">
+                    <span id="deliveryfee"></span>
                 </div>
                 <!-- Input field for total -->
                 <div class="inputbox">
                     <label for="total">Total</label>
                     <input type="text" id="total" name="total" >
+                    <span id="totalCount"></span>
                 </div>
             </div>
             
@@ -298,6 +212,25 @@
         </form>
     </div>
 </div>
+<script>
+    // JavaScript code to save form data
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        // Prevent the form from submitting
+        event.preventDefault();
 
+        // Get form data
+        var formData = {
+            cardName: document.getElementById('cardname').value,
+            cardNumber: document.getElementById('cardNumber').value,
+            expiryDate: document.getElementById('expiryDate').value,
+            cvv: document.getElementById('cvv').value,
+        };
+
+        // Simulate payment processing
+        // Replace this with actual payment processing logic
+        alert('Payment successful!\n' + JSON.stringify(formData));
+    });
+
+</script>
 </body>
 </html>
