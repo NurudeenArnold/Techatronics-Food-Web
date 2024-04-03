@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment-food Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        #overlay {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); 
+            pointer-events: none; 
+            z-index: -1;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            background-image: url('Images/Background food (7).png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+             /*---------Navigation & Logo----------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.navbar a{
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 3rem;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+.navbar a:hover,
+.navbar a.active{
+    color: var(--text-color);
+    border-bottom: 3px solid var(--text-color);
+}
+.logo{
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.logo span{
+    color: var(--text-color);
+}
+.top{
+    min-height: 100vh;
+    padding: 10rem 5% 5rem;
+    margin-top: 3rem;
+}
+.navbar__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.loginbtn{
+    border: 2px solid var(--text-color);
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    font-weight: 600 !important;
+}
+.loginbtn:hover{
+    background-color: var(--text-color) !important;
+    color: black !important;
+}
+
+
+        
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 20px; 
+            max-width: 1000px; 
+            border-radius: 15px; 
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+            margin-top: 150px; 
+            transition: transform 0.3s ease-in-out;  
+          
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: -50px; /* Adjust overlap */
+            transform: translateY(-50%);
+            z-index: 1;
+            width: 300px; /* Adjust image width */
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 0 50px; 
+            z-index: 2; 
+            margin-left: 300px; /* Adjust space between image and form */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing:content-box;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(252, 149, 59);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(252, 149, 59);
+        }
+
+        .order-summary p {
+            margin-bottom: 5px; 
+        }
+
+        .inputbox {
+            margin-bottom: 15px;
+        }
+
+        .inputbox label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .inputbox input {
+            display: inline-block;
+            width: calc(50% - 80px);
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+         }
+         .inputbox {
+           margin-bottom: 10px;
+         }
+
+         .inputbox label {
+           display: inline-block;
+           width: 80px; /* Adjust the width as needed */
+           text-align: right;
+           margin-right: 10px;
+           }
+
+        .inputbox input {
+          width: 120px; /* Adjust the width as needed */
+          padding: 8px; /* Adjust padding as needed */
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          
+         }
+         .seleted.items {
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+
+.seleted.items input {
+    width: 120px; /* Adjust the width as needed */
+    padding: 8px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+    </style>
+</head>
+<body>
+     <!-- Navbar section -->
+     <header class = "header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+    <nav class = "navbar">
+        <a href = "index.html">Home</a>
+        <a href = "about.html">About</a>
+        <a href = "food.html">Food Menu</a>
+        <a href = "contactus.html">Contact us</a>
+        <a href = "book.html">Book a table</a>
+        <a class="loginbtn" href = "login.html">Login</a>
+    </nav>
+     </header>
+
+<div class="container">
+    <img src="admin-ajax.webp">
+    <div class="form-container">
+        <h2>Make payment</h2>
+        <form id="paymentForm">
+            <label for="cardname">Card Name</label><br>
+            <input type="text" id="cardname" name="cardname" placeholder="Enter card name" required><br>
+
+            <label for="cardNumber">Card Number</label><br>
+            <input type="number" id="cardNumber" name="cardNumber" placeholder="Enter card number" required><br>
+
+            <div class="flex">
+                <div class="inputbox">
+                    <label for="expiryDate">Exp Date</label>
+                    <input type="date" id="expiryDate" name="expiryDate" required>
+                </div>
+                <div class="inputbox">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <!-- Input field for selected items-->
+                <div class="seleted items">
+                    <label for="selected items">slected items</label>
+                    <input type="text" id="selected items" name="selected items">
+                </div>
+                <!-- Input field for subtotal -->
+                <div class="inputbox">
+                    <label for="subtotal">Subtotal</label>
+                    <input type="text" id="subtotal" name="subtotal">
+                </div>
+                <!-- Input field for delivery fee -->
+                <div class="inputbox">
+                    <label for="deliveryFee">Delivery Fee</label>
+                    <input type="text" id="deliveryFee" name="deliveryFee">
+                </div>
+                <!-- Input field for total -->
+                <div class="inputbox">
+                    <label for="total">Total</label>
+                    <input type="text" id="total" name="total" >
+                </div>
+            </div>
+            
+
+            <input type="submit" value="Pay Now">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
