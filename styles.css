@@ -632,10 +632,16 @@ footer a {
     width: 50px;
 }
 /*---------Responsiveness----------*/
+@media only screen and (max-width: 1500px) {
+    .navbar a{
+        font-size: 1rem;
+        margin-left: 1.5rem;
+    }
+}
 @media only screen and (max-width: 1360px) {
     .navbar a{
-        font-size: 1.2rem;
-        margin-left: 2rem;
+        font-size: 1rem;
+        margin-left: 1.5rem;
     }
     .grid-container{
         grid-template-columns: repeat(2, 1fr);
@@ -644,7 +650,7 @@ footer a {
 @media only screen and (max-width: 1270px) {
     .navbar a{
         font-size: 1rem;
-        margin-left: 2rem;
+        margin-left: 1.5rem;
     }
     .grid-container{
         grid-template-columns: repeat(2, 1fr);
@@ -653,7 +659,7 @@ footer a {
 @media only screen and (max-width: 1170px) {
     .navbar a{
         font-size: 1rem;
-        margin-left: 2rem;
+        margin-left: 1.5rem;
     }
     .logo{
         font-size: 2rem;
@@ -665,7 +671,7 @@ footer a {
         margin-left: 1rem;
     }
     .logo{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 }
 @media only screen and (max-width: 800px) {

@@ -180,23 +180,25 @@ function DisplayError(error) {
   return;
 }
  /*---------------------------------Image slidewhow----------------------------------------*/
- var images = document.querySelectorAll('#overlay img');
- var current = 0;
-
- function nextSlide() {
- 
-     images[current].style.display = 'none';
+ if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  var images = document.querySelectorAll('#overlay img');
+  var current = 0;
   
-     current = (current + 1) % images.length;
-    
-     images[current].style.display = 'block';
- }
-
- 
- images[current].style.display = 'block';
-
- 
- setInterval(nextSlide, 2000);
+  function nextSlide() {
+  
+      images[current].style.display = 'none';
+   
+      current = (current + 1) % images.length;
+     
+      images[current].style.display = 'block';
+  }
+  
+  
+  images[current].style.display = 'block';
+  
+  
+  setInterval(nextSlide, 2000);
+}
 /*------------------------Cart update--------------------*/
  function updateCartCount(count) {
   const cartCount = document.getElementById("cart-count");
