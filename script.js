@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(loginText);
   }
      /*---------------------------------Image slidewhow----------------------------------------*/
-     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+     if (window.location.pathname.includes('/index.html') || window.location.pathname === '/') {
       var images = document.querySelectorAll('#overlay img');
       var current = 0;
       
