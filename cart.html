@@ -22,9 +22,10 @@
             text-align: center; /* Center text */
         }
 
-        .clear-cart-button:hover {
+        .checkout-button:hover {
             background-color: #f28c42; /* Darker background color on hover */
         }
+        
     </style>
 </head>
 <body>
@@ -51,8 +52,9 @@
         <div id="cart-items" class="cart-items">
             <!-- Cart items will be displayed here -->
         </div>
-        <button onclick="clearCart()" class="checkout-button clear-cart-button">Clear Cart</button>
-        <a href="payment.html" class="checkout-button">Checkout</a>
+        <button onclick="clearCart()" id="clear-cart-button" class="checkout-button" style="display: none;">Clear Cart</button>
+        <a href="payment.html" id="checkout-link" class="checkout-button" style="display: none;">Checkout</a>
+        <p id="empty-cart-message" class="empty-cart-message" style="display: none;"></p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="script.js"></script>
@@ -60,9 +62,15 @@
         function displayCart() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const cartItemsContainer = document.getElementById('cart-items');
+            const checkoutLink = document.getElementById('checkout-link');
+            const clearCartButton = document.getElementById('clear-cart-button');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
 
             if (cartItems.length === 0) {
                 cartItemsContainer.innerHTML = "<p>No items in the cart</p>";
+                emptyCartMessage.style.display = 'block';
+                checkoutLink.style.display = 'none';
+                clearCartButton.style.display = 'none';
                 return;
             }
 
@@ -101,6 +109,11 @@
 
             // Add total amount to the cart
             cartItemsContainer.innerHTML += `<p>Total: R<span id="totalAmount">${totalAmount}</span></p>`;
+
+            // Show checkout button
+            checkoutLink.style.display = 'block';
+            clearCartButton.style.display = 'block';
+            emptyCartMessage.style.display = 'none';
 
             // Add event listeners to quantity input fields
             const quantityInputs = document.querySelectorAll('.quantity-input');
