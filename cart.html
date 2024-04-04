@@ -98,7 +98,7 @@
                                 <td><input type="number" class="quantity-input" value="${item.quantity || 1}" min="1" data-item-name="${item.name}"></td>
                                 <td class="item-total">R${itemTotal}</td> <!-- Display item total -->
                                 <td>
-                                    <button onclick="updateQuantity('${item.name}', this.parentNode.querySelector('.quantity-input').value)">Update</button>
+                                   
                                     <button onclick="removeItem('${item.name}')">Remove</button>
                                 </td>
                             </tr>
@@ -121,7 +121,7 @@
                 input.addEventListener('change', (event) => {
                     const itemName = event.target.dataset.itemName;
                     const newQuantity = parseInt(event.target.value);
-                    updateItemTotal(itemName, newQuantity);
+                    updateQuantity(itemName, newQuantity);
                 });
             });
         }
