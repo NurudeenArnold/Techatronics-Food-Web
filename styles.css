@@ -426,7 +426,7 @@ input:focus ~ .icon {
 }
 .Food_container{
     display: grid;
-    grid-template-columns: repeat(auto,1fr);
+    grid-template-columns: repeat(3,1fr);
     align-items: center;
     flex-wrap: wrap;
     gap: 5rem;
@@ -655,6 +655,9 @@ footer a {
     .grid-container{
         grid-template-columns: repeat(2, 1fr);
     }
+    .Food_container{
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 @media only screen and (max-width: 1170px) {
     .navbar a{
@@ -677,6 +680,9 @@ footer a {
 @media only screen and (max-width: 800px) {
     .grid-container{
         grid-template-columns: repeat(1, 1fr);
+    }
+    .Food_container{
+        grid-template-columns: repeat(1,1fr);
     }
 }
 @media only screen and (max-width: 767.96px) {
