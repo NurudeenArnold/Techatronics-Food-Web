@@ -32,13 +32,13 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
                             <div class="card-body media align-items-center">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
+                                <img  id="profileImage" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt
                                     class="d-block ui-w-80">
                                 <div class="media-body ml-4">
-                                    <label class="btn btn-outline-primary">
+                                    <label for="uploadImage" class="btn btn-outline-primary">
                                         Upload new photo
-                                        <input type="file" class="account-settings-fileinput">
-                                    </label> &nbsp;
+                                    </label>
+                                    <input  id="uploadImage" type="file" class="account-settings-fileinput" accept="image/*" onchange="updateProfileImage(this)">
                                     <button type="button" class="btn btn-default md-btn-flat">Reset</button>
                                     <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                                 </div>
@@ -159,8 +159,17 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-
+    <script type="text/javascript"></script>
+    <script>
+        function updateProfileImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#profileImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 </body>
 
