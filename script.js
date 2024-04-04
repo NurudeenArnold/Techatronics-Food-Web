@@ -29,6 +29,26 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.log(loginText);
   }
+     /*---------------------------------Image slidewhow----------------------------------------*/
+     if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      var images = document.querySelectorAll('#overlay img');
+      var current = 0;
+      
+      function nextSlide() {
+      
+          images[current].style.display = 'none';
+       
+          current = (current + 1) % images.length;
+         
+          images[current].style.display = 'block';
+      }
+      
+      
+      images[current].style.display = 'block';
+      
+      
+      setInterval(nextSlide, 2000);
+    }
 
   document.body.addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
