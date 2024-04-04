@@ -937,11 +937,14 @@ background-color: #ddd;
     background-color: rgb(252, 149, 59);
     color: white;
     border: none;
-    padding: 10px 20px; /* Increased padding for better clickability */
+    padding: 10px 20px; 
     cursor: pointer;
-    margin-top: 20px; /* Added margin-top to move the button down */
-    display: inline-block; /* Ensures it doesn't occupy full width */
+    margin-top: 20px; 
+    display: inline-block; 
     border-radius: 5px;
-    text-decoration: none; /* Remove default underline for links */
-    text-align: center; /* Center text */
+    text-decoration: none;
+    text-align: center; 
+}
+#totalAmount {
+    color: white; 
 }
