@@ -139,6 +139,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+</style>
+
+
 
     </style>
 </head>
@@ -154,6 +157,7 @@
         <a href = "food.html">Food Menu</a>
         <a href = "contactus.html">Contact us</a>
         <a href = "book.html">Book a table</a>
+        <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
         <a class="loginbtn" href = "login.html">Login</a>
     </nav>
      </header>
@@ -212,8 +216,9 @@
         </form>
     </div>
 </div>
+
 <script>
-    // JavaScript code to save form data
+    // JavaScript code to save form data and calculate subtotal
     document.getElementById('paymentForm').addEventListener('submit', function(event) {
         // Prevent the form from submitting
         event.preventDefault();
@@ -224,13 +229,50 @@
             cardNumber: document.getElementById('cardNumber').value,
             expiryDate: document.getElementById('expiryDate').value,
             cvv: document.getElementById('cvv').value,
+            selectedItems: document.getElementById('selectedItems').value,
         };
+
+        // Calculate subtotal and count selected items
+        var items = formData.selectedItems.split(',');
+        formData.subtotal = items.reduce((total, item) => {
+            return total + parseFloat(item.trim()); // Assuming each item has a numeric value
+        }, 0);
+        var itemCount = items.length;
+
+        // Display subtotal and item count
+        document.getElementById('subtotalCount').innerText = 'Total Items: ' + itemCount;
+        document.getElementById('subtotal').value = 'Total: $' + formData.subtotal.toFixed(2);
 
         // Simulate payment processing
         // Replace this with actual payment processing logic
         alert('Payment successful!\n' + JSON.stringify(formData));
     });
+    function updateCartCount(count) {
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = count > 0 ? count : "";
+        }
+    }
 
-</script>
+    window.onload = function () {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+        updateCartCount(cartItemsCount); // Update cart count
+    }
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+    
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
