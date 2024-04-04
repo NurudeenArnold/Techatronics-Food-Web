@@ -726,37 +726,37 @@ footer a {
       }
 }
   /*------------------About page and Team------------------*/
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    :root {
-        --text-color: rgb(252, 149, 59);
-    }
-   
-    h3#aboutus {
-     font-size: 40px;
-     text-align: center;
-     font-family:Georgia, 'Times New Roman', Times, serif
-    }
-    body {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        background-image: url('Images/Background food (7).png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-  .row{
+:root {
+    --text-color: rgb(252, 149, 59);
+}
+
+h3#aboutus {
+ font-size: 40px;
+ text-align: center;
+ font-family:Georgia, 'Times New Roman', Times, serif
+}
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url('Images/Background food (7).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.row{
 margin: 15px;
 border: 2px solid #ccc;
 float: left;
@@ -764,80 +764,88 @@ border-radius: 8px;
 
 }
 .mt-150 {
-    margin-top: 50px;
-  }
-  
-  
-  .section-title h3 {
-    font-size: 40px;
-    position: relative;
-    padding-bottom: 15px;
-  }
-  
-  .section-title h3:after {
-    position: absolute;
-    content: '';
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 50px;
-    height: 2px;
-    background-color: #F28123;
-    margin: 0 auto;
-  }
-  
-  .section-title p {
-    font-size: 15px;
-    width: 530px;
-    margin: 0 auto;
-    color:white;
-    margin-top: 10px;
-    line-height: 1.8;
-  }
-  
-  .section-title {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+margin-top: 50px;
+}
+span {
+color: var(--text-color);
+}
+
+.section-title h3 {
+font-size: 40px;
+position: relative;
+padding-bottom: 15px;
+}
+
+.section-title h3:after {
+position: absolute;
+content: '';
+left: 0px;
+right: 0px;
+bottom: 0px;
+width: 50px;
+height: 2px;
+background-color: #F28123;
+margin: 0 auto;
+}
+
+.section-title p {
+font-size: 20px;
+width: 530px;
+margin: 0 auto;
+color:white;
+margin-top: 10px;
+line-height: 1.8;
+}
+
+.section-title {
+margin-bottom: 40px;
+text-align: center;
+}
 
 
-    .flex-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.5); 
-        padding: 20px; 
-        max-width: 90%; 
-        border-radius: 15px; 
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
-        margin-top: 60px; 
-        transition: transform 0.3s ease-in-out; 
-    }
-  .team-bg-1 {
-    background-image: url(Images/team-1.jpg);
-  }
-  
-  .team-bg-2 {
-    background-image: url(Images/team-2.jpg);
-  }
-  
-  .team-bg-3 {
-    background-image: url(Images/team-3.jpg);
-  }
-  
-  .team-bg-4 {
-    background-image: url(Images/team-3.jpg);
-  }
-  
-  .team-bg {
-    height: 200px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-    background-color: #ddd;
-  }
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px; 
+    max-width: 90%; 
+    border-radius: 15px; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+    margin-top: 60px; 
+    transition: transform 0.3s ease-in-out; 
+}
+.team-bg-1 {
+background-image: url(Images/Sihle.png);
+}
+
+.team-bg-2 {
+background-image: url(Images/Nurudeen.png);
+}
+
+.team-bg-3 {
+background-image: url(Images/Saurav.png);
+}
+
+.team-bg-4 {
+background-image: url(Images/Khanya.png);
+}
+.team-bg-5 {
+background-image: url(Images/Mbasa.png);
+}
+
+
+.team-bg {
+height: 220px;
+width: 100%;
+background-size: cover;
+background-position: center;
+border-radius: 5px;
+background-color: #ddd;
+}
+
+
   .cart-container {
     max-width: 1000px;
     padding: 20px;

@@ -11,7 +11,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <style>
-        /* Your existing CSS styles */
         #overlay {
             position: absolute; 
             top: 0;
@@ -99,7 +98,25 @@
         @media only screen and (max-width: 1250px) {
             img{
                 width: 200px;
-                right: 100px;
+                right: 30px;
+            }
+        }
+         @media only screen and (max-width: 768px) {
+            .Slogan {
+                font-size: 38px;
+                margin-top: 30px;
+            }
+            .Slogan span {
+                font-size: 14px;
+            }
+            .Slogan a.order-now-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            img {
+                width: 100%;
+                max-width: 150px;
+                margin-top: -200px;
             }
         }
     </style>
@@ -129,8 +146,12 @@
     <br>
     <br>
     <a href="food.html">Order Now</a>
-    <img src="Images/hero.png">
-    <div id="overlay"></div>
+    <div id = "overlay">
+        <img src="Images/f3.png"> 
+        <img src="Images/hero.png"> 
+        <img src="Images/hero-header.png"> 
+        
+        </div> 
     <!-- Footer section -->
     <footer>
         <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>

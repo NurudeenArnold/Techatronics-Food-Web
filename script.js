@@ -179,6 +179,38 @@ function DisplayError(error) {
   });
   return;
 }
+ /*---------------------------------Image slidewhow----------------------------------------*/
+ var images = document.querySelectorAll('#overlay img');
+ var current = 0;
+
+ function nextSlide() {
+ 
+     images[current].style.display = 'none';
+  
+     current = (current + 1) % images.length;
+    
+     images[current].style.display = 'block';
+ }
+
+ 
+ images[current].style.display = 'block';
+
+ 
+ setInterval(nextSlide, 2000);
+/*------------------------Cart update--------------------*/
+ function updateCartCount(count) {
+  const cartCount = document.getElementById("cart-count");
+  if (cartCount) {
+      cartCount.textContent = count > 0 ? count : "";
+  }
+}
+
+window.onload = function () {
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+  updateCartCount(cartItemsCount); // Update cart count
+}
+
 /*-----------------------------------------Responsive Navbar-----------------------------------------*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -204,3 +236,4 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 };
+

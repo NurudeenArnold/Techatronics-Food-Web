@@ -7,20 +7,54 @@
     <title>Food Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <style>
+     @media only screen and (max-width: 1360px) {
+    .navbar a{
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+
+            .navbar {
+                margin-top: 10px;
+            }
+
+
+            /* Responsive styles for content sections */
+            .section-title h3 {
+                font-size: 30px;
+            }
+
+            .section-title p {
+                width: auto;
+                padding: 0 10px;
+                font-size: 19px;
+            }
+
+            /* Responsive styles for team section */
+            .row {
+                width: 65%;
+                margin: 15px auto;
+            }
+
+            .single-team-item {
+                margin-bottom:2px;
+            }
+        }
+    </style>
 </head>
 
 <body>
      <!-- Navbar section -->
-     <header class="header">
+     <header class = "header">
         <a href="index.html" class="logo">Tech
             <span>Foods</span>
         </a>
 
-        <i class="bx bx-menu" id="menu-icon"></i>
+        <i class = "bx bx-menu" id="menu-icon"></i>
 
         <nav class="navbar">
             <a href="index.html">Home</a>
@@ -42,8 +76,8 @@
             <div class="Chef_About">
                 <p class="aboutWeb">Welcome to <span>TechFoods</span>, your ultimate destination for culinary inspiration!<br><br>At
                     TechFoods,
-                    we are passionate about all things food and are dedicated to providing you with delicious recipes,<br>
-                    helpful cooking tips, and insightful articles to enhance your culinary journey.<br><br>
+                    we are passionate about all things food and are dedicated to providing <br> you with delicious recipes,
+                    helpful cooking tips, and insightful articles to enhance<br> your culinary journey.<br><br>
                     Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
                     create memorable meals that nourish both body and soul. <br>
                     With a diverse range of recipes spanning from comforting classics to innovative creations,<br>
@@ -101,15 +135,15 @@
 					<div class="single-team-item">
 						<div class="team-bg team-bg-1"></div><br>
 					</div>
-                    <h4>Sihle Mtshini <span>Chef</span></h4><br>
+                    <h4>Sihle Mtshini - <span>Chef</span></h4><br>
 				</div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-3"></div><br>
+						<div class="team-bg team-bg-2"></div><br>
 					</div>
-                    <h4>Nurudeen Arnold <span>Chef</span></h4><br>
+                    <h4>Nurudeen Arnold - <span>Chef</span></h4><br>
                 </div>
 				</div>
                 <div class="row">
@@ -117,24 +151,24 @@
 					<div class="single-team-item">
 						<div class="team-bg team-bg-3"></div><br>
 					</div>
-                    <h4>Saurav Sewparsad <span>Chef</span></h4><br>
+                    <h4>Saurav Sewparsad - <span>Chef</span></h4><br>
 				</div>
             </div>
             <div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-3"></div><br>
+						<div class="team-bg team-bg-4"></div><br>
 					</div>
-                    <h4>Khanya Somagaca <span>Chef</span></h4><br>
+                    <h4>Khanya Somagaca - <span>Chef</span></h4><br>
 				</div>
             </div>
             <div class="row">
               
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-team-item">
-						<div class="team-bg team-bg-2"></div><br>
+						<div class="team-bg team-bg-5"></div><br>
 					</div>
-                    <h4>Mbasa Mpohlolo <span>Chef</span></h4><br>
+                    <h4>Mbasa Mpohlolo - <span>Chef</span></h4><br>
 				</div>
 			</div>
 		</div>
@@ -150,22 +184,6 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script src="script.js"></script>
-    <script>
-        function updateCartCount(count) {
-            const cartCount = document.getElementById("cart-count");
-            if (cartCount) {
-                cartCount.textContent = count > 0 ? count : "";
-            }
-        }
-    
-        window.onload = function () {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
-            updateCartCount(cartItemsCount); // Update cart count
-        }
-    </script>
-    
-    
 </body>
 
-</html>  
+</html>
