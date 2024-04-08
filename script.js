@@ -108,12 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(DisplayError); //display any error that might occur when registering (password, email, etc)
 
-        document.getElementById("name").value = "";
-        document.getElementById("surname").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("contact").value = "";
-        document.getElementById("password").value = "";
-
     } /*-----------------------------------------Login Button-----------------------------------------*/
     // Check if the submitted form is the login form
     if (event.target.id === "loginForm") {
@@ -199,20 +193,6 @@ function DisplayError(error) {
   });
   return;
 }
-/*------------------------Cart update--------------------*/
- function updateCartCount(count) {
-  const cartCount = document.getElementById("cart-count");
-  if (cartCount) {
-      cartCount.textContent = count > 0 ? count : "";
-  }
-}
-
-window.onload = function () {
-  const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-  const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
-  updateCartCount(cartItemsCount); // Update cart count
-}
-
 /*-----------------------------------------Responsive Navbar-----------------------------------------*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -238,4 +218,3 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 };
-
