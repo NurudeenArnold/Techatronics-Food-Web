@@ -948,3 +948,16 @@ background-color: #ddd;
 #totalAmount {
     color: white; 
 }
+
+#profile-image {
+    display: none; 
+    width: 45px; 
+    height: 40px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    vertical-align: middle;
+   }
+
+   #cart-link {
+    margin-right: 10px; /* Add margin between the cart icon and other elements */
+    }
