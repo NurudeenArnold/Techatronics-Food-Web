@@ -950,6 +950,7 @@ background-color: #ddd;
 }
 
 #profile-image {
+    display: none;
     width: 45px;
     height: 40px;
     border-radius: 50%;
