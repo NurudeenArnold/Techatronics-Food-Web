@@ -143,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
               userNameRef.on('value', (snapshot) => {
                 const userName = snapshot.val(); 
                 localStorage.setItem("userName", userName) //local storage for name
+                console.log("idanoida" + user.uid)
+                localStorage.setItem("userID", user.uid)
                 window.location.href = "index.html"; //redirect user to home page
               }, (error) => {
                 console.error("Error retrieving user's name:", error);

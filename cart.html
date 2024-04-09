@@ -354,21 +354,22 @@
             });
           },
           onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-              Swal.fire({
-            //Alert Success Payment
-            title: "Thank you!",
-            text: "Your Order has been placed!",
-            color: "#ffffff",
-            icon: "success",
-            confirmButtonColor: "var(--text-color)",
-            iconColor: "var(--text-color)",
-            confirmButtonText: "Okay",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = "cart.html";
-            }
-          });
+              return actions.order.capture().then(function(details) {
+                  AddCartToDatabase();
+                  Swal.fire({
+                //Alert Success Payment
+                title: "Thank you!",
+                text: "Your Order has been placed!",
+                color: "#ffffff",
+                icon: "success",
+                confirmButtonColor: "var(--text-color)",
+                iconColor: "var(--text-color)",
+                confirmButtonText: "Okay",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "cart.html";
+                }
+            });
             localStorage.setItem('cartItems', JSON.stringify([]));
             });
           },
@@ -384,6 +385,41 @@
               });
           }
         }).render('#paypal-button-container');
+        
+        function generateOrderID() {
+            return Math.floor(Math.random() * 1000000);
+        }
+        function AddCartToDatabase() {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+            let userID = localStorage.getItem("userID");
+    
+            if (!userID) {
+                userID = "Guest"
+            }
+            
+            const orderID = generateOrderID();
+          
+            const cartItemsObject = {};
+            cartItems.forEach((item, index) => {
+                cartItemsObject[item.name] = item;
+            });
+        
+            const order = {
+                userID: userID,
+                cartItems: cartItemsObject 
+            };
+        
+            database.ref("orders/" + orderID).set(order)
+                .then(() => {
+                    console.log("Order successfull");
+                })
+                .catch((error) => {
+                    console.error("Error", error);
+                });
+        
+            localStorage.setItem('cartItems', JSON.stringify([]));
+        }
+
     </script>
     <script src="script.js"></script>
 </body>
