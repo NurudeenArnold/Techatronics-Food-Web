@@ -214,7 +214,30 @@ window.onscroll = () => {
     });
 };
 
+
+/*-----------------------------------Icon drop down menu function------------------------------- */
+document.addEventListener("DOMContentLoaded", function() {
+  var profileImage = document.getElementById("profile-image");
+  var dropdownMenu = document.getElementById("dropdown-menu");
+
+  // Toggle dropdown menu visibility when profile icon is clicked
+  profileImage.addEventListener("click", function(event) {
+    dropdownMenu.classList.toggle("show");
+    event.stopPropagation(); // Prevent the click event from bubbling up
+  });
+
+  // Close dropdown menu when clicking outside of the icon or dropdown menu
+  document.body.addEventListener("click", function() {
+    dropdownMenu.classList.remove("show");
+  });
+
+  // Prevent the dropdown menu from closing when clicking inside it
+  dropdownMenu.addEventListener("click", function(event) {
+    event.stopPropagation(); // Prevent the click event from bubbling up
+  });
+});
+
 menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('active');
 };

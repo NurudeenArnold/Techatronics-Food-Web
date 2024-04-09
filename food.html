@@ -20,16 +20,21 @@
 
         <i class = "bx bx-menu" id="menu-icon"></i>
 
-        <nav class = "navbar">
-            <a href = "index.html">Home</a>
-            <a href = "about.html">About</a>
-            <a href = "food.html">Food Menu</a>
-            <a href = "contactus.html">Contact us</a>
-            <a href = "book.html">Book a table</a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a class="loginbtn" href="login.html">Login</a>
             <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
-            <a class="loginbtn" href = "login.html">Login</a>
-            <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
-        </nav>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
     </header>
     <!--Food items category-->
     <section class = top>

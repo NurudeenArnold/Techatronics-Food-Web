@@ -138,10 +138,15 @@
             <a href="food.html">Food Menu</a>
             <a href="contactus.html">Contact us</a>
             <a href="book.html">Book a table</a>
-            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
             <a class="loginbtn" href="login.html">Login</a>
-            <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
-        </nav>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
     </header>
 
     <!-- Your existing content -->
@@ -186,6 +191,17 @@
         loginButton.style.display = "none"; // Hide the login button
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
     </script>
     
 </body>
