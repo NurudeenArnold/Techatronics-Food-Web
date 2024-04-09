@@ -192,6 +192,18 @@
         loginButton.style.display = "none"; // Hide the login button
     }
 }
+
+//logout function for drop down
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
     </script>
 </body>
 </html>
