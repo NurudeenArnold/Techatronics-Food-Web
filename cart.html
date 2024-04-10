@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
     <script>
         /*------------------------Cart update--------------------*/
         function updateCartCount(count) {
@@ -29,10 +30,28 @@
        } 
         function increaseQuantity(name) {
             updateQuantity(name, 1);
+            Toastify({
+              text: "Increased Quantity",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
         }
 
         function decreaseQuantity(name) {
             updateQuantity(name, -1);
+            Toastify({
+              text: "Decreased Quantity",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
         }
     </script>
     <title>Cart</title>
@@ -300,6 +319,15 @@
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
             displayCart();
             updateCartCount(countTotalItems(cartItems)); // Update cart count
+            Toastify({
+              text: "Removed from Cart",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
         }
 
         function clearCart() {
@@ -432,6 +460,7 @@
         }
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>
 </body>
 </html>

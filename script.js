@@ -250,7 +250,7 @@ showToastBtns.forEach(showToastBtn => {
     showToastBtn.addEventListener('click', function() {
         console.log("vowampo")
         Toastify({
-            text: "Added to Cart!",
+            text: "Added to Cart",
             duration: 1000,
             close: false,
             gravity: "bottom",
@@ -260,3 +260,5 @@ showToastBtns.forEach(showToastBtn => {
         }).showToast();
     });
 });
+
+const decQuantity = document.querySelectorAll('.minus');
