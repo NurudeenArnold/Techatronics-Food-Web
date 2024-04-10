@@ -257,6 +257,7 @@ showToastBtns.forEach(showToastBtn => {
             position: "right",
             backgroundColor: "#fc953b",
             stopOnFocus: true,
+            destination: "cart.html",
         }).showToast();
     });
 });
