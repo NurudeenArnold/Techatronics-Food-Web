@@ -95,6 +95,10 @@ input:focus ~ .icon {
     font-size: 1.3em;
 }
 
+.toastify-content {
+    background-color: black; 
+    color: var(--main-color); 
+}
 /*---------Navigation & Logo----------*/
 .header {
     position: fixed;

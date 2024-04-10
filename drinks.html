@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
     <title>Food Website</title>
 </head>
 <body class="Food_back">
@@ -57,7 +58,7 @@
                         <input type="radio" id="coke_large" name="coke_size" value="large">
                         <label for="coke_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Coke', 10)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Coke', 10)">Add to Cart</button>
                 </div>
             </div>
             
@@ -76,7 +77,7 @@
                         <input type="radio" id="cream_large" name="cream_soda_size" value="large">
                         <label for="cream_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Cream soda float', 40)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Cream soda float', 40)">Add to Cart</button>
                 </div>
             </div>
             <div class="Food_box">
@@ -94,7 +95,7 @@
                         <input type="radio" id="fanta_large" name="fanta_size" value="large">
                         <label for="fanta_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Fanta', 15)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Fanta', 15)">Add to Cart</button>
                 </div>
             </div>
             
@@ -113,7 +114,7 @@
                         <input type="radio" id="milkshake_large" name="milkshake_size" value="large">
                         <label for="milkshake_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Milkshake', 60)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Milkshake', 60)">Add to Cart</button>
                 </div>
             </div>
             
@@ -132,7 +133,7 @@
                         <input type="radio" id="water_large" name="water_size" value="large">
                         <label for="water_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Water', 5)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Water', 5)">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -210,5 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

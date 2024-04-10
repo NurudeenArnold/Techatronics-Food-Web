@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
     <title>Food Website</title>
 </head>
 <body class="Food_back">
@@ -46,7 +47,7 @@
                 <p class="name">burger with chips and a side of coke</p> 
                 <img src="food menu img/burgers_img/beef burger, chips and coke (2).jpg" alt="beef burger with chips and a side of coke">
                 <p class="price">R120</p>
-                <button onclick="addItemToCart('burger with chips and a side of coke', 120)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('burger with chips and a side of coke', 120)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -54,7 +55,7 @@
                 <p class="name">double beef or chicken bacon burger</p>
                 <img src="food menu img/burgers_img/double beef or chicken bacon burger.jpg" alt="double beef or chicken bacon burger">
                 <p class="price">R100</p>
-                <button onclick="addItemToCart('double beef or chicken bacon burger', 100)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('double beef or chicken bacon burger', 100)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -62,7 +63,7 @@
                 <p class="name">Soya burger</p>
                 <img src="food menu img/burgers_img/soya burger.jpg" alt="soya burger">
                 <p class="price">R75</p>
-                <button onclick="addItemToCart('soya burger', 75)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('soya burger', 75)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -70,7 +71,7 @@
                 <p class="name">texas chicken burger and chips</p>
                 <img src="food menu img/burgers_img/texas chicken burger and chips.jpg" alt="texas chicken burger and chips">
                 <p class="price">R115</p>
-                <button onclick="addItemToCart('texas chicken burger and chips', 115)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('texas chicken burger and chips', 115)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -78,7 +79,7 @@
                 <p class="name">zinger burger, chips and coke</p>
                 <img src="food menu img/burgers_img/zinger burger, chips and coke.jpg" alt="zinger burger, chips and coke">
                 <p class="price">R95</p>
-                <button onclick="addItemToCart('zinger burger, chips and coke', 95)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('zinger burger, chips and coke', 95)">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -152,5 +153,7 @@
     });
 });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

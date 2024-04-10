@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
     <title>Food Website</title>
     <style>
         h3 {
@@ -17,6 +18,10 @@
             border-radius: 8px;
             padding: 10px;
             text-align: center;
+        }
+        .toastify-content {
+            background-color: black; 
+            color: var(--main-color); 
         }
     </style>
 </head>
@@ -53,7 +58,7 @@
                 <p class="name">Boerewors</p>
                 <img src="food menu img/meat_img/boerewors.jpg" alt="Boerewors" width="250" height="250">
                 <p class="price">R125</p>
-                <button onclick="addItemToCart('Boerewors', 125)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('Boerewors', 125)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -61,7 +66,7 @@
                 <p class="name">Pork Chops</p>
                 <img src="food menu img/meat_img/chops.jpg" alt="Pork Chops" width="250" height="250">
                 <p class="price">R100</p>
-                <button onclick="addItemToCart('Pork Chops', 100)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('Pork Chops', 100)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -69,7 +74,7 @@
                 <p class="name">Braai platter</p>
                 <img src="food menu img/meat_img/platter.jpg" alt="Braai platter" width="250" height="250">
                 <p class="price">R250</p>
-                <button onclick="addItemToCart('Braai platter', 250)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('Braai platter', 250)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -77,7 +82,7 @@
                 <p class="name">Quarter leg</p>
                 <img src="food menu img/meat_img/ql.jpg" alt="Quarter leg" width="250" height="250">
                 <p class="price">R90</p>
-                <button onclick="addItemToCart('Quarter leg', 90)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('Quarter leg', 90)">Add to Cart</button>
             </div>
         </div>
         <div class="Food_box">
@@ -85,7 +90,7 @@
                 <p class="name">Pork strips</p>
                 <img src="food menu img/meat_img/strips.jpg" alt="Pork strips" width="250" height="250">
                 <p class="price">R100</p>
-                <button onclick="addItemToCart('Pork strips', 100)">Add to Cart</button>
+                <button class="orderButton" onclick="addItemToCart('Pork strips', 100)">Add to Cart</button>
             </div>
         </div>
     </div>
@@ -159,5 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

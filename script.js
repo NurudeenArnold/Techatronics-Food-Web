@@ -108,7 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(DisplayError); //display any error that might occur when registering (password, email, etc)
 
-    } /*-----------------------------------------Login Button-----------------------------------------*/
+    } 
+    /*-----------------------------------------Login Button-----------------------------------------*/
     // Check if the submitted form is the login form
     if (event.target.id === "loginForm") {
       //Assign user input to vairables
@@ -215,8 +216,6 @@ window.onscroll = () => {
         }
     });
 };
-
-
 /*-----------------------------------Icon drop down menu function------------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
   var profileImage = document.getElementById("profile-image");
@@ -243,3 +242,21 @@ menuIcon.onclick = () => {
   menuIcon.classList.toggle('bx-x');
   navbar.classList.toggle('active');
 };
+
+/*-----------------------------------Toast Notification------------------------------- */
+const showToastBtns = document.querySelectorAll('.orderButton');
+
+showToastBtns.forEach(showToastBtn => {
+    showToastBtn.addEventListener('click', function() {
+        console.log("vowampo")
+        Toastify({
+            text: "Added to Cart!",
+            duration: 1000,
+            close: false,
+            gravity: "bottom",
+            position: "right",
+            backgroundColor: "#fc953b",
+            stopOnFocus: true,
+        }).showToast();
+    });
+});

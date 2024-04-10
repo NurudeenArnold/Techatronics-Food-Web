@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
     <title>Food Website</title>
 </head>
 <body class="Food_back">
@@ -56,7 +57,7 @@
                         <input type="radio" id="chicken_large" name="chicken_size" value="large">
                         <label for="chicken_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Chicken Pizza', 25)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Chicken Pizza', 25)">Add to Cart</button>
                 </div>
             </div>
             
@@ -75,7 +76,7 @@
                         <input type="radio" id="hawaiian_large" name="hawaiian_size" value="large">
                         <label for="hawaiian_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Hawaiian Pizza', 30)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Hawaiian Pizza', 30)">Add to Cart</button>
                 </div>
             </div>
             
@@ -94,7 +95,7 @@
                         <input type="radio" id="margarita_large" name="margarita_size" value="large">
                         <label for="margarita_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Margarita Pizza', 20)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Margarita Pizza', 20)">Add to Cart</button>
                 </div>
             </div>
             
@@ -113,7 +114,7 @@
                         <input type="radio" id="pepperoni_large" name="pepperoni_size" value="large">
                         <label for="pepperoni_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Pepperoni Pizza', 40)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Pepperoni Pizza', 40)">Add to Cart</button>
                 </div>
             </div>
             <div class="Food_box">
@@ -131,7 +132,7 @@
                         <input type="radio" id="sweet_chili_large" name="sweet_chili_size" value="large">
                         <label for="sweet_chili_large">Large</label>
                     </div>
-                    <button onclick="addItemToCart('Sweet Chili chicken Pizza', 95)">Add to Cart</button>
+                    <button class="orderButton" onclick="addItemToCart('Sweet Chili chicken Pizza', 95)">Add to Cart</button>
                 </div>
             </div>
     </section>
@@ -175,35 +176,37 @@
         function countTotalItems(cartItems) {
             return cartItems.reduce((total, item) => total + item.quantity, 0);
         }
-
         // Update cart count on page load
         window.onload = function () {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
-    updateCartCount(cartItemsCount); // Update cart count
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
 
-    // Check if the user is logged in
-    const loggedInUser = localStorage.getItem("userName");
-    if (loggedInUser) {
-        const profileImage = document.getElementById("profile-image");
-        profileImage.style.display = "inline-block"; // Show the profile image
-        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
-        const loginButton = document.querySelector(".loginbtn");
-        loginButton.style.display = "none"; // Hide the login button
-    }
-}
+            // Check if the user is logged in
+            const loggedInUser = localStorage.getItem("userName");
+            if (loggedInUser) {
+                const profileImage = document.getElementById("profile-image");
+                profileImage.style.display = "inline-block"; // Show the profile image
+                profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+                const loginButton = document.querySelector(".loginbtn");
+                loginButton.style.display = "none"; // Hide the login button
+            }
+        }
 
-//logout function for drop down
-document.addEventListener("DOMContentLoaded", function() {
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+        //logout function for drop down
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
 
-    logoutLink.addEventListener("click", function() {
-        // Clear the user's data from localStorage and redirect to the login page
-        localStorage.removeItem("userName");
-        window.location.href = "login.html";
-    });
-});
+            logoutLink.addEventListener("click", function() {
+                // Clear the user's data from localStorage and redirect to the login page
+                localStorage.removeItem("userName");
+                window.location.href = "login.html";
+            });
+        });
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
