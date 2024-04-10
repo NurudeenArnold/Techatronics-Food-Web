@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Website</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <title>Contact Us</title>
+    <style>
+    </style>
 </head>
-<body class="Food_back">
+<body class="BackgroundIMG">
      <!-- Navbar section -->
      <header class = "header">
         <a href="index.html" class="logo">Tech
@@ -36,47 +38,29 @@
                 </div>
             </div>
     </header>
-    <!--Food items category-->
-    <section class = top>
-        <div class="Food_type">
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h3>Burgers</h3>
-                    <br>
-                    <a href="Burger.html" class="menu-link">
-                        <img src="food menu img/burgers.jpg" alt="a delicious burger">
-                        <span class="hover-text">Click to view menu</span>
-                        <h2>View menu</h2>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <h3>Meat</h3>
-                    <br>
-                    <a href="meat.html" class="menu-link">
-                        <img src="food menu img/meat2.jpg" alt="a delicious meat">
-                        <span class="hover-text">Click to view menu</span>
-                        <h2>View menu</h2>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <h3>Pizza</h3>
-                    <br>
-                    <a href="Pizza.html" class="menu-link">
-                        <img src="food menu img/pizza.jpg" alt="a delicious pizza">
-                        <span class="hover-text">Click to view menu</span>
-                        <h2>View menu</h2>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <h3>Drinks</h3>
-                    <br>
-                    <a href="drinks.html" class="menu-link">
-                        <img src="food menu img/drink.jpg" alt="a quenching drink">
-                        <span class="hover-text">Click to view menu</span>
-                        <h2>View menu</h2>
-                    </a>
-                </div>
-            </div>
+
+    <!--Contact us Section-->
+    <section class = contactus>
+        <h3>You can <span>contact</span> us at:</h3>
+        <p>Telephone : <strong>012 345 6789</strong></p>
+        <p>Email: <a href="Techatronics@TechFoods.com"><strong>Techatronics@TechFoods.com</strong></a></p>
+    
+        <div class="social-media">
+        <h3><span>Connect</span> with us at:</h3>
+        <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    <!-- <a href = "https://www.facebook.com/capacitiza/"><img src = "images/facebook.png" style="width:50px;height:50px;"></a>
+    <a href = "https://za.linkedin.com/showcase/capacitiza/"><img src = "images/linkedin.png" style="width:50px;height:50px;"></a> -->
+        
+    <h3>We are <span>located</span> at:</h3>
+    <figure>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.3015608334836!2d18.460659299999996!3d-33.933371199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5d08518ba1b9%3A0x1398e85e424f762!2s97%20Durham%20Ave%2C%20Salt%20River%2C%20Cape%20Town%2C%207925!5e0!3m2!1sen!2sza!4v1708432369255!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption>
+            <p>97 Durham Ave, Salt River, Cape Town, 7925</p>
+        </figcaption>
+    </figure>
+   
+    
     </section>
     <!-- Footer section -->
     <footer>
@@ -95,11 +79,11 @@
         }
     
         window.onload = function () {
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
-    updateCartCount(cartItemsCount); // Update cart count
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
 
-    // Check if the user is logged in
+             // Check if the user is logged in
     const loggedInUser = localStorage.getItem("userName");
     if (loggedInUser) {
         const profileImage = document.getElementById("profile-image");
@@ -108,10 +92,10 @@
         const loginButton = document.querySelector(".loginbtn");
         loginButton.style.display = "none"; // Hide the login button
     }
-}
+        }
 
-//logout function for drop down
-document.addEventListener("DOMContentLoaded", function() {
+        //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
     const dropdownMenu = document.getElementById("dropdown-menu");
     const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
 
@@ -121,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "login.html";
     });
 });
+
     </script>
     
 </body>
+</html> 

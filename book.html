@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <title>Reservation Table</title>
+    
+    
+</head>
+<body class="BackgroundIMG">
+ <!-- Navbar section -->
+ <header class = "header">
+    <a href="index.html" class="logo">Tech
+        <span>Foods</span>
+    </a>
+
+    <i class = "bx bx-menu" id="menu-icon"></i>
+
+    <nav class = "navbar">
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+</header>
+
+<div class="reservation-form">
+    <h2>MAKE A RESERVATION</h2>
+    <form id="reservationForm">
+        <div class="field-group">
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+        
+        <div class="field-group">
+            <input type="email" id="email" placeholder="Enter your email" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+        </div>
+        <div class="field-group">
+            <input type="datetime-local" id="datetime" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+        </div>
+        <div class="field-group">
+            <input type="number" id="people" placeholder="Enter the number of people" min="1" max="10" required><br>
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+        <button type="submit">Submit Reservation</button>
+    </form>
+</div>
+
+<footer>
+    <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    <p>Contact us at: Techatronics@TechFoods.com</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="script.js"></script>
+<script>
+    function updateCartCount(count) {
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = count > 0 ? count : "";
+        }
+    }
+
+    window.onload = function () {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+        updateCartCount(cartItemsCount); // Update cart count
+
+         // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+    }
+    //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+</script>
+
+</body>
+</html>

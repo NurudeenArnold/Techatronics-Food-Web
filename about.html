@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <style>
+     @media only screen and (max-width: 1360px) {
+    .navbar a{
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+           
+
+            .navbar {
+                margin-top: 10px;
+            }
+
+
+            /* Responsive styles for content sections */
+            .section-title h3 {
+                font-size: 30px;
+            }
+
+            .section-title p {
+                width: auto;
+                padding: 0 10px;
+                font-size: 19px;
+            }
+
+            /* Responsive styles for team section */
+            .row {
+                width: 65%;
+                margin: 15px auto;
+            }
+
+            .single-team-item {
+                margin-bottom:2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    
+     <!-- Navbar section -->
+     <header class = "header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class = "bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+    </header>
+<br>
+<br>
+<br>
+    <div class="flex-container">
+        <!-- Content sections -->
+        <section class="contact">
+            <h3 id="aboutus">About us</h3>
+            <div class="Chef_About">
+                <p class="aboutWeb">Welcome to <span>TechFoods</span>, your ultimate destination for culinary inspiration!<br><br>At
+                    TechFoods,
+                    we are passionate about all things food and are dedicated to providing <br> you with delicious recipes,
+                    helpful cooking tips, and insightful articles to enhance<br> your culinary journey.<br><br>
+                    Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to <br>
+                    create memorable meals that nourish both body and soul. <br>
+                    With a diverse range of recipes spanning from comforting classics to innovative creations,<br>
+                    there's something for everyone here. <br><br>Join us as we explore the world of gastronomy, two dishes at a
+                    time.
+                </p><br>
+            </div>
+        </section>
+
+        <!-- Why choose us section -->
+        <section class="contact">
+            <h3>Why people <span>choose</span> us?</h3>
+            <div class="cho_food">
+                <ul class="ChooseUs__point">
+                    <li class="ChooseUs__item">
+                        <p>We are fast and reliable</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Flavourful food</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Cater for everyone and their preferred style of food</p>
+                    </li>
+                    <li class="ChooseUs__item">
+                        <p>Best in the west</p>
+                    </li>
+                </ul> 
+            </div>
+        </section>
+        <section>
+            <div class = "contact">
+            <h3>We are <span>working</span> from:</h3>
+            <p>Monday - Friday</p>
+            <p><strong>08:00AM to 10:00PM</strong></p>
+            <p>Saturday - Sunday</p>
+            <p><strong>10:00AM to 8:00PM</strong></p>
+            </div>
+        </section>
+        	<!-- team section -->
+            <section>
+	<div class="mt-150">
+		<div class="container">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Our <span class="orange-text">Team</span></h3>
+						<p>In our restaurant, meet our dedicated team of skilled chefs,
+                             each passionate about crafting culinary delights that tantalize the taste buds.
+                             Explore our website to see their faces and
+                              learn more about the talented individuals behind the exquisite dishes we serve.</p>
+					</div>
+				</div>
+			
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-1"></div><br>
+					</div>
+                    <h4>Sihle Mtshini - <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-2"></div><br>
+					</div>
+                    <h4>Nurudeen Arnold - <span>Chef</span></h4><br>
+                </div>
+				</div>
+                <div class="row">
+                <div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-3"></div><br>
+					</div>
+                    <h4>Saurav Sewparsad - <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-4"></div><br>
+					</div>
+                    <h4>Khanya Somagaca - <span>Chef</span></h4><br>
+				</div>
+            </div>
+            <div class="row">
+              
+				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+					<div class="single-team-item">
+						<div class="team-bg team-bg-5"></div><br>
+					</div>
+                    <h4>Mbasa Mpohlolo - <span>Chef</span></h4><br>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<!-- end team section -->
+    </div>
+    <!--footer section-->
+    <footer>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+    
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
+
+             // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+        }
+
+     //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+    </script>
+</body>
+
+</html>

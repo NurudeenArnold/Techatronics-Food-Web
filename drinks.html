@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
+    <title>Food Website</title>
+</head>
+<body class="Food_back">
+     <!-- Navbar section -->
+     <header class="header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+    </header>
+
+    <!--Menu for drinks-->
+   
+    <section class="top">
+        <h3 class="Food_type_name">Drinks Menu</h3>
+        <div class="Food_container">
+            <div class="Food_box">
+                <div class="Food_info">
+                    <p class="name">Coke</p> 
+                    <img src="food menu img/drinks_img/coke.jpg" alt="Glass of coke">
+                    <p class="price">R10</p>
+                    <div class="size_options">
+                        <input type="radio" id="coke_small" name="coke_size" value="small">
+                        <label for="coke_small">Small</label>
+            
+                        <input type="radio" id="coke_medium" name="coke_size" value="medium" checked>
+                        <label for="coke_medium">Medium</label>
+            
+                        <input type="radio" id="coke_large" name="coke_size" value="large">
+                        <label for="coke_large">Large</label>
+                    </div>
+                    <button class="orderButton" onclick="addItemToCart('Coke', 10)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="Food_box">
+                <div class="Food_info">
+                    <p class="name">Cream soda float </p>
+                    <img src="food menu img/drinks_img/cream soda.jpg" alt="Cream soda float">
+                    <p class="price">R40</p>
+                    <div class="size_options">
+                        <input type="radio" id="cream_small" name="cream_soda_size" value="small">
+                        <label for="cream_small">Small</label>
+            
+                        <input type="radio" id="cream_medium" name="cream_soda_size" value="medium" checked>
+                        <label for="cream_medium">Medium</label>
+            
+                        <input type="radio" id="cream_large" name="cream_soda_size" value="large">
+                        <label for="cream_large">Large</label>
+                    </div>
+                    <button class="orderButton" onclick="addItemToCart('Cream soda float', 40)">Add to Cart</button>
+                </div>
+            </div>
+            <div class="Food_box">
+                <div class="Food_info">
+                    <p class="name">Fanta</p>
+                    <img src="food menu img/drinks_img/fanta.jpg" alt="glass of fanta">
+                    <p class="price">R15</p>
+                    <div class="size_options">
+                        <input type="radio" id="fanta_small" name="fanta_size" value="small">
+                        <label for="fanta_small">Small</label>
+            
+                        <input type="radio" id="fanta_medium" name="fanta_size" value="medium" checked>
+                        <label for="fanta_medium">Medium</label>
+            
+                        <input type="radio" id="fanta_large" name="fanta_size" value="large">
+                        <label for="fanta_large">Large</label>
+                    </div>
+                    <button class="orderButton" onclick="addItemToCart('Fanta', 15)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="Food_box">
+                <div class="Food_info">
+                    <p class="name">Milkshake</p>
+                    <img src="food menu img/drinks_img/milkshakes.jpg" alt="Milkshakes">
+                    <p class="price">R60</p>
+                    <div class="size_options">
+                        <input type="radio" id="milkshake_small" name="milkshake_size" value="small">
+                        <label for="milkshake_small">Small</label>
+            
+                        <input type="radio" id="milkshake_medium" name="milkshake_size" value="medium" checked>
+                        <label for="milkshake_medium">Medium</label>
+            
+                        <input type="radio" id="milkshake_large" name="milkshake_size" value="large">
+                        <label for="milkshake_large">Large</label>
+                    </div>
+                    <button class="orderButton" onclick="addItemToCart('Milkshake', 60)">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="Food_box">
+                <div class="Food_info">
+                    <p class="name">Water</p>
+                    <img src="food menu img/drinks_img/water.jpg" alt="Glass of water">
+                    <p class="price">R5</p>
+                    <div class="size_options">
+                        <input type="radio" id="water_small" name="water_size" value="small">
+                        <label for="water_small">Small</label>
+            
+                        <input type="radio" id="water_medium" name="water_size" value="medium" checked>
+                        <label for="water_medium">Medium</label>
+            
+                        <input type="radio" id="water_large" name="water_size" value="large">
+                        <label for="water_large">Large</label>
+                    </div>
+                    <button class="orderButton" onclick="addItemToCart('Water', 5)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer section -->
+    <footer>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+         function addItemToCart(name, price) {
+        // Get existing cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Check if the item is already in the cart
+        const existingItemIndex = cartItems.findIndex(item => item.name === name);
+        if (existingItemIndex !== -1) {
+            // If the item is already in the cart, increment its quantity
+            cartItems[existingItemIndex].quantity += 1;
+        } else {
+            // If the item is not in the cart, add it with quantity 1
+            cartItems.push({ name, price, quantity: 1 });
+        }
+
+        // Save updated cart items to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Update cart count
+        updateCartCount();
+    }
+
+    function updateCartCount() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const totalCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = totalCount;
+        }
+    }
+
+    // Update cart count on page load
+    window.onload = function () {
+        updateCartCount();
+    };
+    function updateQuantity(name, quantity) {
+    console.log("Updating quantity for:", name); // Debugging statement
+    console.log("New quantity:", quantity); // Debugging statement
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    console.log("Current cart items:", cartItems); // Debugging statement
+    // Rest of the function code...
+
+     // Check if the user is logged in
+     const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+}
+
+//logout function for drop down
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

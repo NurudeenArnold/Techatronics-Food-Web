@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
+    <title>Food Website</title>
+</head>
+<body class="Food_back">
+     <!-- Navbar section -->
+     <header class = "header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class = "bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+    </header>
+
+    <section class = top>
+    <!-- Meals for burgers -->
+    <h3 class="Food_type_name">Burger meals</h3>
+    <div class="Food_container">
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">burger with chips and a side of coke</p> 
+                <img src="food menu img/burgers_img/beef burger, chips and coke (2).jpg" alt="beef burger with chips and a side of coke">
+                <p class="price">R120</p>
+                <button class="orderButton" onclick="addItemToCart('burger with chips and a side of coke', 120)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">double beef or chicken bacon burger</p>
+                <img src="food menu img/burgers_img/double beef or chicken bacon burger.jpg" alt="double beef or chicken bacon burger">
+                <p class="price">R100</p>
+                <button class="orderButton" onclick="addItemToCart('double beef or chicken bacon burger', 100)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">Soya burger</p>
+                <img src="food menu img/burgers_img/soya burger.jpg" alt="soya burger">
+                <p class="price">R75</p>
+                <button class="orderButton" onclick="addItemToCart('soya burger', 75)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">texas chicken burger and chips</p>
+                <img src="food menu img/burgers_img/texas chicken burger and chips.jpg" alt="texas chicken burger and chips">
+                <p class="price">R115</p>
+                <button class="orderButton" onclick="addItemToCart('texas chicken burger and chips', 115)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="Food_box">
+            <div class="Food_info">
+                <p class="name">zinger burger, chips and coke</p>
+                <img src="food menu img/burgers_img/zinger burger, chips and coke.jpg" alt="zinger burger, chips and coke">
+                <p class="price">R95</p>
+                <button class="orderButton" onclick="addItemToCart('zinger burger, chips and coke', 95)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- Footer section -->
+    <footer>
+        <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function addItemToCart(name, price) {
+            // Get existing cart items from localStorage
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // Check if the item is already in the cart
+            const existingItemIndex = cartItems.findIndex(item => item.name === name);
+            if (existingItemIndex !== -1) {
+                // If the item is already in the cart, increment its quantity
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                // If the item is not in the cart, add it with quantity 1
+                cartItems.push({ name, price, quantity: 1 });
+            }
+
+            // Save updated cart items to localStorage
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            // Update cart count
+            updateCartCount(countTotalItems(cartItems));
+        }
+
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count;
+            }
+        }
+
+        function countTotalItems(cartItems) {
+            return cartItems.reduce((total, item) => total + item.quantity, 0);
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            updateCartCount(countTotalItems(cartItems));
+
+             // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+        };
+
+        //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

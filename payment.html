@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment-food Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <style>
+    
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 20px; 
+            max-width: 1000px; 
+            border-radius: 15px; 
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+            margin-top: 150px; 
+            transition: transform 0.3s ease-in-out;  
+    
+          
+        }
+
+        .Credit_card {
+            position: absolute;
+            top: 50%;
+            left: -50px; /* Adjust overlap */
+            transform: translateY(-50%);
+            z-index: 1;
+            width: 300px; /* Adjust image width */
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 0 50px; 
+            z-index: 2; 
+            margin-left: 300px; /* Adjust space between image and form */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing:content-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(252, 149, 59);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(252, 149, 59);
+        }
+
+        .order-summary p {
+            margin-bottom: 5px; 
+        }
+
+        .inputbox {
+            margin-bottom: 15px;
+        }
+
+        .inputbox label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .inputbox input {
+            display: inline-block;
+            width: calc(50% - 80px);
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+         }
+         .inputbox {
+           margin-bottom: 10px;
+         }
+
+         .inputbox label {
+           display: inline-block;
+           width: 80px; /* Adjust the width as needed */
+           text-align: right;
+           margin-right: 10px;
+           }
+
+        .inputbox input {
+          width: 120px; /* Adjust the width as needed */
+          padding: 8px; /* Adjust padding as needed */
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          
+         }
+         .seleted.items {
+    margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+
+.seleted.items input {
+    width: 120px; /* Adjust the width as needed */
+    padding: 8px; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+
+
+    </style>
+</head>
+<body>
+     <!-- Navbar section -->
+     <header class = "header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+     </header>
+
+<div class="container">
+    <img  class="Credit_card" src="admin-ajax.webp">
+    <div class="form-container">
+        <h2>Make payment</h2>
+        <form id="paymentForm">
+            <label for="cardname">Card Name</label><br>
+            <input type="text" id="cardname" name="cardname" placeholder="Enter card name" required><br>
+
+            <label for="cardNumber">Card Number</label><br>
+            <input type="number" id="cardNumber" name="cardNumber" placeholder="1234 5768 9475 3746" required><br>
+
+            <div class="flex">
+                <div class="inputbox">
+                    <label for="expiryDate">Exp Date</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+                </div>
+                <div class="inputbox">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <!-- Input field for selected items-->
+                <div class="seleted items">
+                    <label for="selected items">selected items</label>
+                    <input type="text" id="selected items" name="selected items">
+                    <span id="selectedItemsCount"></span>
+                </div>
+                <!-- Input field for subtotal -->
+                <div class="inputbox">
+                    <label for="subtotal">Subtotal</label>
+                    <input type="text" id="subtotal" name="subtotal">
+                    <span id="subtotalCount"></span>
+                </div>
+                <!-- Input field for delivery fee -->
+                <div class="inputbox">
+                    <label for="deliveryFee">Delivery Fee</label>
+                    <input type="text" id="deliveryFee" name="deliveryFee">
+                    <span id="deliveryfee"></span>
+                </div>
+                <!-- Input field for total -->
+                <div class="inputbox">
+                    <label for="total">Total</label>
+                    <input type="text" id="total" name="total" >
+                    <span id="totalCount"></span>
+                </div>
+            </div>
+            
+
+            <input type="submit" value="Pay Now">
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript code to save form data and calculate subtotal
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        // Get form data
+        var formData = {
+            cardName: document.getElementById('cardname').value,
+            cardNumber: document.getElementById('cardNumber').value,
+            expiryDate: document.getElementById('expiryDate').value,
+            cvv: document.getElementById('cvv').value,
+            selectedItems: document.getElementById('selectedItems').value,
+        };
+
+        // Calculate subtotal and count selected items
+        var items = formData.selectedItems.split(',');
+        formData.subtotal = items.reduce((total, item) => {
+            return total + parseFloat(item.trim()); // Assuming each item has a numeric value
+        }, 0);
+        var itemCount = items.length;
+
+        // Display subtotal and item count
+        document.getElementById('subtotalCount').innerText = 'Total Items: ' + itemCount;
+        document.getElementById('subtotal').value = 'Total: $' + formData.subtotal.toFixed(2);
+
+        // Simulate payment processing
+        // Replace this with actual payment processing logic
+        alert('Payment successful!\n' + JSON.stringify(formData));
+    });
+    function updateCartCount(count) {
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = count > 0 ? count : "";
+        }
+    }
+
+    window.onload = function () {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+        updateCartCount(cartItemsCount); // Update cart count
+    }
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+    
+        window.onload = function () {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+            updateCartCount(cartItemsCount); // Update cart count
+             
+             // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+        }
+
+        //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

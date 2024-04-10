@@ -4,50 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <style>
+        #overlay {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); 
+            pointer-events: none; 
+            z-index: -1;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('Images/bg-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            position: relative;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .Slogan {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            color: rgb(252, 149, 59);
+            font-size: 50px;
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .Slogan span {
+            color: antiquewhite;
+            font-size: 20px;
+        }
+        .Slogan a.order-now-button {
+            background-color: rgb(252, 149, 59); 
+            color: black;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            display: inline-block; 
+}
+
+.Slogan a.order-now-button:hover {
+    background-color: rgb(236, 124, 45); 
+}
+        #overlay img {
+            position: absolute;
+            top: 50%;
+            right: 250px;
+            transform: translateY(-50%) rotate(0deg); 
+            max-width: 400px; 
+            animation: spin 30s linear infinite; 
+        }
+        footer{
+            margin-top: auto;
+        }
+        @keyframes spin {
+            from {
+                transform: translateY(-50%) rotate(0deg); 
+            }
+            to {
+                transform: translateY(-50%) rotate(360deg); 
+            }
+        }
+        @media only screen and (max-width: 1500px) {
+            img{
+                width: 300px;
+                right: 150px;
+            }
+        }
+        @media only screen and (max-width: 1500px) {
+            img{
+                width: 300px;
+                right: 150px;
+            }
+        }
+        @media only screen and (max-width: 1250px) {
+            img{
+                width: 200px;
+                right: 30px;
+            }
+        }
+         @media only screen and (max-width: 768px) {
+            .Slogan {
+                font-size: 38px;
+                margin-top: 30px;
+            }
+            .Slogan span {
+                font-size: 14px;
+            }
+            .Slogan a.order-now-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            img {
+                width: 100%;
+                max-width: 150px;
+                margin-top: -200px;
+            }
+
+            
+        }
+    </style>
 </head>
 <body>
-     <!--Navbar section-->
-     <nav class="navbar">
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">TechFoods</a>
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <!-- Navbar section -->
+    <header class="header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
             </div>
-            <!--this is the unordered list for the nav-->
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/" class="navbar__links">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/food.html" class="navbar__links">Food Menu</a>
-                </li>
-                <li class="navbar__btn">
-                    <a href="/" class="button">Sign Up</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!--Video section-->
-   <video  autoplay muted loop width="500">
-    <Source src="Food ad.mp4"> 
-    <Source src="Food ad.WebM">
-        This browser does not support html 5
-   </video>
-   <p> The best food across the web</p>
+    </header>
 
-   <!--About us section-->
-   <h3>About us</h3>
-   <p>Welcome to TechFoods, your ultimate destination for culinary inspiration! At TechFoods, we are passionate about all things food and <br> 
-    are dedicated to providing you with delicious recipes, helpful cooking tips, and insightful articles to enhance your culinary journey. <br> 
-    Whether you're a seasoned chef or a novice in the kitchen, our goal is to empower you to create memorable meals that nourish both body and soul.<br>  
-    With a diverse range of recipes spanning from comforting classics to innovative creations, there's something for everyone here. Join us as we explore<br>  
-    the world of gastronomy, one dish at a time.</p>
+    <!-- Your existing content -->
+    <p class="Slogan">Bites of Flavor, Where <br> Tech Meets Taste.<br><span>Welcome to TechFoods, your ultimate destination for culinary inspiration!</span><br><a href="food.html" class="order-now-button">Order Now</a></p>
+    <br>
+    <br>
+    <a href="food.html">Order Now</a>
+    <div id = "overlay">
+        <img src="Images/f3.png"> 
+        <img src="Images/hero.png"> 
+        <img src="Images/hero-header.png"> 
+        
+        </div> 
+    <!-- Footer section -->
+    <footer>
+        <a href="https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+        <a href="https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+        <p>Contact us at: Techatronics@TechFoods.com</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
 
-    <img src="images/chef.png" alt="a chef">
+        window.onload = function () {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+    updateCartCount(cartItemsCount); // Update cart count
+
+    // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+}
+
+//logout function for drop down
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+    </script>
+    
 </body>
 </html>

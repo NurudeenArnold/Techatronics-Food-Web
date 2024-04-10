@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons,marks&disable-funding=credit,card"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.css" rel="stylesheet">
+    <title>Cart</title>
+    <script>
+        /*------------------------Cart update--------------------*/
+        function updateCartCount(count) {
+         const cartCount = document.getElementById("cart-count");
+         if (cartCount) {
+             cartCount.textContent = count > 0 ? count : "";
+         }
+       }
+       
+       window.onload = function () {
+         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+         const cartItemsCount = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+         updateCartCount(cartItemsCount); // Update cart count
+       } 
+        function increaseQuantity(name) {
+            updateQuantity(name, 1);
+            Toastify({
+              text: "Increased Quantity",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
+        }
+
+        function decreaseQuantity(name) {
+            updateQuantity(name, -1);
+            Toastify({
+              text: "Decreased Quantity",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
+        }
+    </script>
+    <style>
+        h2 {
+            text-align: center;
+            padding: 1rem;
+            font-size: 2.5rem;
+        }
+        .checkout-button, .clear-cart-button {
+            background-color: rgb(252, 149, 59);
+            color: white;
+            border: none;
+            padding: 10px 20px; /* Increased padding for better clickability */
+            cursor: pointer;
+            margin-top: 20px; /* Added margin-top to move the button down */
+            display: inline-block; /* Ensures it doesn't occupy full width */
+            border-radius: 5px;
+            text-decoration: none; /* Remove default underline for links */
+            text-align: center; /* Center text */
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-radius: 2rem;
+        }
+
+        .checkout-button:hover {
+            background-color: #f28c42; /* Darker background color on hover */
+        }
+
+        .text {
+            font-size: 1.5rem;
+        }
+
+        .cart-item{
+            font-weight: 900;
+            backdrop-filter: blur(10px);
+            border: none;
+            border-bottom: white 1px solid;
+        }
+        .cart-container {
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            -webkit-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+            -moz-box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+            box-shadow: 12px 29px 50px 0px rgba(255, 255, 255, 0.75);
+            padding: 3rem;
+        }
+        #total{
+            border-bottom: white 1px solid;
+            padding-bottom: 1rem;
+        }
+        .quantity-input {
+            width: 50px;
+        }
+        input[type="number"] {
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            opacity: 1;
+        }
+        
+        .number-input {
+          border: 2px solid #ddd;
+          display: inline-flex;
+        }
+        
+        .number-input,
+        .number-input * {
+            border: white 1px solid;
+        }
+        
+        .number-input button {
+          outline:none;
+          background-color: transparent;
+          border: none;
+          align-items: center;
+          justify-content: center;
+          width: 1rem;
+          height: auto;
+          cursor: pointer;
+          margin: 0;
+          position: relative;
+        }
+        
+        .number-input button:after {
+          display: inline-block;
+          position: absolute;
+          font-family: "Font Awesome 5 Free"; 
+          font-weight: 900;
+          content: '\f077';
+          transform: translate(-50%, -50%) rotate(180deg);
+        }
+        .number-input button.plus:after {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        
+        .number-input input[type=number] {
+          border: none;
+          height: 1rem;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        #noItems{
+            text-align: center;
+        }
+        .item-name {
+            width: 200px;
+            max-width: 200px; 
+            word-wrap: break-word; 
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="food.html">Food Menu</a>
+            <a href="contactus.html">Contact us</a>
+            <a href="book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            <a class="loginbtn" href="login.html">Login</a>
+            <div class="profile-container">
+                <img id="profile-image" src="Images/user_profile.png" alt="Profile Image">
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <a href="userProfile.html" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item">Logout</a>
+                </div>
+            </div>
+    </header>
+
+    <div class="cart-container">
+        <h2><i class='bx bxs-cart bx-tada' ></i> Shopping Cart</h2>
+        <div id="cart-items" class="cart-items">
+        </div>
+        <button onclick="clearCart()" id="clear-cart-button" class="checkout-button" style="display: none;">Clear Cart</button>
+        <h2 id="checkoutTitle"><i class='bx bxs-credit-card-front bx-tada' ></i> Checkout Options:</h2>
+        <a href="payment.html" id="checkout-link" class="checkout-button" style="display: none;"><i class='bx bxs-credit-card-front'></i> Card Checkout</a>
+        <div id="paypal-button-container"></div>
+        <p id="empty-cart-message" class="empty-cart-message" style="display: none;"></p>
+    </div>
+    <script>
+        /*-------------------------------------------CART-------------------------------------------*/
+        var totalAmount = 0;
+        function displayCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const checkoutLink = document.getElementById('checkout-link');
+            const clearCartButton = document.getElementById('clear-cart-button');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const paypalButtonContainer = document.getElementById('paypal-button-container');
+            const checkoutTitle = document.getElementById('checkoutTitle');
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = "<p id = 'noItems'>No items in the cart</p>";
+                emptyCartMessage.style.display = 'block';
+                checkoutLink.style.display = 'none';
+                clearCartButton.style.display = 'none';
+                paypalButtonContainer.style.display = 'none';
+                checkoutTitle.style.display = 'none';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = "";
+            totalAmount = 0;
+
+            const groupedItems = groupItems(cartItems);
+            groupedItems.forEach(item => {
+                const itemTotal = item.price * item.quantity; // Calculate item total
+                totalAmount += itemTotal; // Add item total to the overall total
+            
+                cartItemsContainer.innerHTML += `
+                <div class="cart-item">
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th> 
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td class="item-name">${item.name}</td>
+                            <td>R${item.price}</td>
+                            <td>
+                                <div class="number-input">
+                                    <button onclick="decreaseQuantity('${item.name}')" class="minus"></button>
+                                    <input type="number" class="quantity-input" value="${item.quantity || 1}" min="1" data-item-name="${item.name}" readonly>
+                                    <button onclick="increaseQuantity('${item.name}')" class="plus"></button>
+                                </div>
+                            </td>
+                            <td class="item-total">R${itemTotal}</td> 
+                            <td>
+                                <button style="border-radius: 2rem;" onclick="removeItem('${item.name}')">Remove</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+            });
+
+            // Add total amount to the cart
+            cartItemsContainer.innerHTML += `<p class = "text" id = "total">Total: R<span id="totalAmount">${totalAmount}</span></p>`;
+
+            // Show checkout button
+            checkoutLink.style.display = 'block';
+            clearCartButton.style.display = 'block';
+            emptyCartMessage.style.display = 'none';
+
+            // Add event listeners to quantity input fields
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', (event) => {
+                    const itemName = event.target.dataset.itemName;
+                    const newQuantity = parseInt(event.target.value);
+                    updateQuantity(itemName, newQuantity);
+                });
+            });
+        }
+
+        function groupItems(cartItems) {
+            const groupedItems = [];
+            cartItems.forEach(item => {
+                const existingItem = groupedItems.find(i => i.name === item.name);
+                if (existingItem) {
+                    existingItem.quantity += item.quantity || 1;
+                } else {
+                    groupedItems.push({ ...item });
+                }
+            });
+            return groupedItems;
+        }
+
+        function updateQuantity(name, change) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.forEach(item => {
+                if (item.name === name) {
+                    item.quantity = (item.quantity || 1) + change;
+                    if (item.quantity < 1) {
+                        item.quantity = 1;
+                    }
+                    item.total = item.price * item.quantity;
+                }
+            });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCart();
+            updateCartCount(countTotalItems(cartItems));
+        }
+
+        function removeItem(name) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems = cartItems.filter(item => item.name !== name);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCart();
+            updateCartCount(countTotalItems(cartItems)); // Update cart count
+            Toastify({
+              text: "Removed from Cart",
+              duration: 1000,
+              close: false,
+              gravity: "bottom",
+              position: "right",
+              backgroundColor: "#fc953b",
+              stopOnFocus: true,
+            }).showToast();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cartItems');
+            displayCart();
+            updateCartCount(0); // Update cart count
+            Toastify({
+                text: "Cart Cleared",
+                duration: 1500,
+                close: false,
+                gravity: "bottom",
+                position: "right",
+                backgroundColor: "#fc953b",
+                stopOnFocus: true,
+            }).showToast();
+        }
+
+        function countTotalItems(cartItems) {
+            return cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+        }
+
+        function updateCartCount(count) {
+            const cartCount = document.getElementById("cart-count");
+            if (cartCount) {
+                cartCount.textContent = count > 0 ? count : "";
+            }
+        }
+
+        window.onload = function () {
+            displayCart();
+            const cartItemsCount = JSON.parse(localStorage.getItem('cartItems')) ? countTotalItems(JSON.parse(localStorage.getItem('cartItems'))) : 0;
+            updateCartCount(cartItemsCount); // Update cart count
+
+             // Check if the user is logged in
+    const loggedInUser = localStorage.getItem("userName");
+    if (loggedInUser) {
+        const profileImage = document.getElementById("profile-image");
+        profileImage.style.display = "inline-block"; // Show the profile image
+        profileImage.src = "Images/user_profile.png"; // Set the source of the profile image
+        const loginButton = document.querySelector(".loginbtn");
+        loginButton.style.display = "none"; // Hide the login button
+    }
+        }  
+        //logout function for drop down
+    document.addEventListener("DOMContentLoaded", function() {
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutLink = dropdownMenu.querySelector(".dropdown-item:last-child");
+
+    logoutLink.addEventListener("click", function() {
+        // Clear the user's data from localStorage and redirect to the login page
+        localStorage.removeItem("userName");
+        window.location.href = "login.html";
+    });
+});
+        /*-------------------------------------------PAYPAL-------------------------------------------*/
+        paypal.Buttons({
+            style: {
+                layout:  'vertical',
+                color:   'white',
+                shape:   'pill',
+                label:   'checkout'
+            },
+          createOrder: function(data, actions) {
+            const convertedAmount = totalAmount * 0.054;
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                    currency_code: 'USD',
+                    value: convertedAmount.toFixed(2)
+                }
+              }]
+            });
+          },
+          onApprove: function(data, actions) {
+              return actions.order.capture().then(function(details) {
+                  AddCartToDatabase();
+                  Swal.fire({
+                //Alert Success Payment
+                title: "Thank you!",
+                text: "Your Order has been placed!",
+                color: "#ffffff",
+                icon: "success",
+                confirmButtonColor: "var(--text-color)",
+                iconColor: "var(--text-color)",
+                confirmButtonText: "Okay",
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = "cart.html";
+                }
+            });
+            localStorage.setItem('cartItems', JSON.stringify([]));
+            });
+          },
+          onCancel: function(data) {
+            Swal.fire({
+                //Alert Cancelled Payment
+                title: "Payment was Cancelled",
+                color: "#ffffff",
+                icon: "error",
+                confirmButtonText: "Okay",
+                iconColor: "var(--text-color)",
+                confirmButtonColor: "var(--text-color)",
+              });
+          }
+        }).render('#paypal-button-container');
+        
+        function generateOrderID() {
+            return Math.floor(Math.random() * 1000000);
+        }
+        function AddCartToDatabase() {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+            let userID = localStorage.getItem("userID");
+    
+            if (!userID) {
+                userID = "Guest"
+            }
+            
+            const orderID = generateOrderID();
+          
+            const cartItemsObject = {};
+            cartItems.forEach((item, index) => {
+                cartItemsObject[item.name] = item;
+            });
+        
+            const order = {
+                userID: userID,
+                cartItems: cartItemsObject 
+            };
+        
+            database.ref("orders/" + orderID).set(order)
+                .then(() => {
+                    console.log("Order successfull");
+                })
+                .catch((error) => {
+                    console.error("Error", error);
+                });
+        
+            localStorage.setItem('cartItems', JSON.stringify([]));
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

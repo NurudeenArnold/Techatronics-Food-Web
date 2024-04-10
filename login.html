@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet">
+    <script src="https://kit.fontawesome.com/d172cda538.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <title>Login - Food Website</title>
+    <style>
+        .top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #loginForm h3{
+            font-size: 3rem;
+            color: white;
+            margin: 1.5rem;
+            transition: 0.3s ease-in-out;
+        }
+        #loginForm h3:hover{
+            color: var(--text-color);
+            transform: scale(1.2);
+        }
+        #loginForm a{
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            font-weight: 600;
+        }
+        #loginForm a:hover{
+            color: var(--text-color);
+        }
+        #loginForm p{
+            margin-top: 1.5rem;
+        }
+        #loginBtn {
+            font-size: 1rem;
+            background: transparent;
+            color: white;
+            padding: 12px 20px;
+            border: 2px solid white;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s ease-in-out;
+        }
+        #loginBtn:hover{
+            transform: scale(1.05);
+            color: var(--text-color);
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="BackgroundIMG">
+     <!-- Navbar section -->
+     <header class = "header">
+        <a href="index.html" class="logo">Tech
+            <span>Foods</span>
+        </a>
+
+        <i class = "bx bx-menu" id="menu-icon"></i>
+
+        <nav class = "navbar">
+            <a href = "index.html">Home</a>
+            <a href = "about.html">About</a>
+            <a href = "food.html">Food Menu</a>
+            <a href = "contactus.html">Contact us</a>
+            <a href = "book.html">Book a table</a>
+            <a href="cart.html" id="cart-link"><i class="fa fa-shopping-cart"></i></a>
+            <a class="loginbtn" href = "login.html">Login</a>
+        </nav>
+    </header>
+
+    <section class = top>
+        <div class="form">
+            <form action="" id="loginForm">
+                <h3>Login</h3>
+                <div class="field-group">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <div class="icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                </div>
+                <input type="submit" id="loginBtn" value="Login">
+                <p>Don't have an account? <a href="registration.html">Register here</a></p>
+            </form>
+        </div>
+    </section>
+<!-- Footer section -->
+<footer>
+    <a href = "https://www.facebook.com/capacitiza/" target="_blank"><i class="devicon-facebook-plain"></i></a>
+    <a href = "https://za.linkedin.com/showcase/capacitiza/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    <p>Contact us at: Techatronics@TechFoods.com</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
