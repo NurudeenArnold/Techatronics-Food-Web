@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(loginButton.href);
   } else {
     console.log(loginText);
+    loginButton.innerHTML = "<i class='fas fa-user'></i> Logan";
   }
      /*---------------------------------Image slidewhow----------------------------------------*/
      if (window.location.pathname.includes('/index.html') || window.location.pathname === '/') {
